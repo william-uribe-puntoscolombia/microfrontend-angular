@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-// import { NgxPermissionsService } from 'ngx-permissions';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +11,15 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class App {
   protected title = 'shell';
 
-  // permissions  = inject(NgxPermissionsService)
+  permissions  = inject(NgxPermissionsService)
 
   ngOnInit(): void {
-    // const roles = ["user:list", "user:create", "user:update", "user:delete"];
+    const roles = ["user:list", "user:create", "user:update", "user:delete"];
 
 
-    // this.permissions.loadPermissions(roles);
+    this.permissions.loadPermissions(roles);
 
-    // console.log('->', this.permissions.getPermissions());
+    console.log('->', this.permissions.getPermissions());
 
   }
 }

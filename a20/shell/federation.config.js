@@ -1,14 +1,10 @@
-const { withNativeFederation, shareAll, share } = require('@angular-architects/native-federation/config');
-const { LOG_INFO } = require('karma/lib/constants');
+const { withNativeFederation, shareAll } = require('@angular-architects/native-federation/config');
+
 
 module.exports = withNativeFederation({
 
   shared: {
     ...shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
-    '@angular/core': { singleton: true, strictVersion: false, requiredVersion: '^20.0.0' },
-    '@angular/common': { singleton: true, strictVersion: false, requiredVersion: '^20.0.0' },
-    '@angular/router': { singleton: true, strictVersion: false, requiredVersion: '^20.0.0' },
-    'ngx-permissions': { singleton: true, strictVersion: false, requiredVersion: 'auto' }
   },
 
 
