@@ -2,54 +2,32 @@ const { withNativeFederation, shareAll, share } = require('@angular-architects/n
 
 module.exports = withNativeFederation({
 
-  name: 'mf-users',
+  name: 'remote-angular19',
 
   exposes: {
-    // './Component': './src/app/app.component.ts',
-    // './web-components': './src/bootstrap.ts',
-    'users-list': './src/app/pages/users-list/users-list.component.ts',
+    // Anterior:
+    // 'users-list': './src/app/pages/users-list/users-list.component.ts',
+    // Nuevo: Exponer el script que define el Web Component
+    'users-list-wc': './src/bootstrap.ts',
   },
 
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    // ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    // "@angular/core": { singleton: true, strictVersion: false, requiredVersion: '19.2.0' }, // Reemplaza '19.x.x' con tu versión exacta
+    // "@angular/common": { singleton: true, strictVersion: false, requiredVersion: '19.2.0' }, // Reemplaza '19.x.x' con tu versión exacta
+    // "@angular/router": { singleton: true, strictVersion: false, requiredVersion: '19.2.0' }, // Reemplaza '19.x.x' con tu versión exacta
+    // "@angular/elements": { singleton: true, strictVersion: false, requiredVersion: '19.2.14' }, // Añade @angular/elements
+    // "@angular/common/http": { singleton: true, strictVersion: false, requiredVersion: '19.x.x' },
+    // "@angular/forms": { singleton: true, strictVersion: false, requiredVersion: '19.x.x' },
   },
 
-  // shared: {
-  //   ...share({
-  //     "@angular/core": { requiredVersion: "auto" },
-  //     "@angular/common": { requiredVersion: "auto" },
-  //     "@angular/router": { requiredVersion: "auto" },
-  //     "@angular/common/http": { requiredVersion: "auto" },
-  //   })
-  // },
-
-  // shared: {
-  //   // "@angular/core": "^19.2.0",
-  //   // "@angular/common": "^19.2.0",
-  //   // "@angular/router": "^19.2.0",
-
-  //   // "@angular/animations": "^19.2.0",
-  //   // "@angular/compiler": "^19.2.0",
-  //   // "@angular/forms": "^19.2.0",
-  //   // "@angular/platform-browser": "^19.2.0",
-  //   // "@angular/platform-browser-dynamic": "^19.2.0",
-
-  //   "@angular/core": {requiredVersion: '19.2.0'},
-  //   "@angular/common": {requiredVersion: '19.2.0'},
-  //   "@angular/router": {requiredVersion: '19.2.0'},
-  //   // "@angular/common/http": {requiredVersion: '19.2.0'}
-  // },
 
   skip: [
     'rxjs/ajax',
     'rxjs/fetch',
     'rxjs/testing',
     'rxjs/webSocket',
-    // Add further packages you don't need at runtime
+    'ngx-permissions'
   ]
-
-  // Please read our FAQ about sharing libs:
-  // https://shorturl.at/jmzH0
-
 });

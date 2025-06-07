@@ -2,7 +2,7 @@ const { withNativeFederation, shareAll } = require('@angular-architects/native-f
 
 module.exports = withNativeFederation({
 
-  name: 'mf-users',
+  name: 'remote-angular20',
 
   exposes: {
 

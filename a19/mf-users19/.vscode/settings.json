@@ -1,10 +1,11 @@
 {
   "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#57345e",
+    "titleBar.activeBackground": "#55465f",
     "titleBar.activeForeground": "#ecf0f1",
-    "titleBar.inactiveBackground": "#57345e",
+    "titleBar.inactiveBackground": "#55465f",
     "titleBar.inactiveForeground": "#bdc3c7",
-    "activityBar.background": "#57345e",
+    "activityBar.background": "#55465f",
     "activityBar.foreground": "#ecf0f1",
-  }
+  },
+  "window.title": "[Remote - Angular 19]"
 }

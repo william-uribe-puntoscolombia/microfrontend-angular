@@ -24,7 +24,7 @@ export class UsersList implements OnInit {
     /**
      * log
      */
-    console.log('->', this.permissions.getPermissions());
+    console.log('mf20-permissions:\n', this.permissions.getPermissions());
 
   }
 }
