@@ -8,7 +8,9 @@ module.exports = withNativeFederation({
     // Anterior:
     // 'users-list': './src/app/pages/users-list/users-list.component.ts',
     // Nuevo: Exponer el script que define el Web Component
-    'users-list-wc': './src/bootstrap.ts',
+    // 'users-list-wc': './src/bootstrap.ts',
+    './UsersList': './src/app/pages/users-list/users-list.webcomponent.ts',
+
   },
 
 
@@ -28,6 +30,6 @@ module.exports = withNativeFederation({
     'rxjs/fetch',
     'rxjs/testing',
     'rxjs/webSocket',
-    'ngx-permissions'
+    // 'ngx-permissions' // skip si se tiene ...shareAll()
   ]
 });

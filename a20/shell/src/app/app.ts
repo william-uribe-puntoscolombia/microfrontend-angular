@@ -25,7 +25,7 @@ export class App {
 
     this.permissions.loadPermissions(roles);
 
-    console.log('->', this.permissions.getPermissions());
+    console.log('shell:\n', this.permissions.getPermissions());
 
   }
 }

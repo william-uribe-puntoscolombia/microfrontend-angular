@@ -26,7 +26,7 @@ export class UsersList {
     /**
      * log
      */
-    console.log('mf19-permissions:', this.permissions.getPermissions());
+    console.log('mf19-permissions:\n', this.permissions.getPermissions());
 
   }
 }

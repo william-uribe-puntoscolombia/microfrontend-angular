@@ -30,8 +30,8 @@ export const routes: Routes = [
       config: {
         // remoteEntry: 'http://localhost:4201/remoteEntry.js', // (opcional, ) Reemplaza con la URL real del remoteEntry.js de mf-users
         remoteName: 'remote-angular19', // El 'name' de tu mf-users en su federation.config.js
-        exposedModule: 'users-list-wc', // El módulo expuesto en federation.config.js de mf-users
-        elementName: 'users-list-in-remote' // El nombre de la etiqueta del custom element definido en bootstrap.ts de mf-users
+        exposedModule: './UsersList', // El módulo expuesto en federation.config.js de mf-users
+        elementName: 'app-users-list-webcomp' // El nombre de la etiqueta del custom element definido en bootstrap.ts de mf-users
       } as WrapperConfig,
     },
   },
