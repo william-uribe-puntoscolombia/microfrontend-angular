@@ -1,11 +1,9 @@
 import { Routes, UrlMatcher } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-// Add this import:
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { WrapperComponent } from './wrapper/wrapper.component';
-import { WrapperConfig } from './wrapper/wrapper-config';
+import { WrapperConfig } from './wrapper/wrapper-config-type';
 import { startsWith } from './starts-with';
 
 export const routes: Routes = [
@@ -28,10 +26,9 @@ export const routes: Routes = [
     component: WrapperComponent,
     data: {
       config: {
-        // remoteEntry: 'http://localhost:4201/remoteEntry.js', // (opcional, ) Reemplaza con la URL real del remoteEntry.js de mf-users
-        remoteName: 'remote-angular19', // El 'name' de tu mf-users en su federation.config.js
-        exposedModule: './UsersList', // El módulo expuesto en federation.config.js de mf-users
-        elementName: 'app-users-list-webcomp' // El nombre de la etiqueta del custom element definido en bootstrap.ts de mf-users
+        remoteName: 'remote-angular19', // Shell: Es el name que esta en el federation.manifest.json
+        exposedModule: './UsersList', // Remoto: El nombre del elemento expuesto en el remoto (exposes{...} federation.config.js del remoto)
+        elementName: 'app-users-list-webcomp' // Remoto: El nombre del WebComponent(DOM Element) ver:(src/app/pages/users-list/users-list.webcomponent.ts)
       } as WrapperConfig,
     },
   },
@@ -48,19 +45,8 @@ export const routes: Routes = [
     },
   },
 
-  {
-    path: 'react-mfe',
-    component: WrapperComponent,
-    data: {
-      config: {
-        remoteName: 'react-mfe',
-        exposedModule: './web-components',
-        elementName: 'react-mfe',
-      } as WrapperConfig,
-    },
-  },
 
-
+  // Resuelve conflictos en urls, que el remote y el padre tengan igual
   {
     matcher: startsWith('profile'),
     component: WrapperComponent,

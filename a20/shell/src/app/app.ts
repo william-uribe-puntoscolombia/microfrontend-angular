@@ -1,4 +1,4 @@
-import { Component, inject, NgZone } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgxPermissionsService } from 'ngx-permissions';
 
@@ -16,7 +16,7 @@ export class App {
   constructor() {
     // authInfo.userName = 'Jane Doe';
 
-    (globalThis as any).ngZone = inject(NgZone);
+
   }
 
   ngOnInit(): void {

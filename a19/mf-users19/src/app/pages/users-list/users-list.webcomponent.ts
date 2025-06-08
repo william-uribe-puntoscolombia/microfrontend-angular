@@ -1,3 +1,5 @@
+import 'zone.js'; // Importante si usa zone.js
+
 /**
  * Crea un webcomponent a partir del userlist
  */
