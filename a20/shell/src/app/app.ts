@@ -29,4 +29,5 @@ export class App {
     this.viewRouter.set(false);
     setTimeout(() => this.viewRouter.set(true));
   }
+
 }
