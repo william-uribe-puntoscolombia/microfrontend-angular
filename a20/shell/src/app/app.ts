@@ -1,8 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import {
-  Router,
-  RouterOutlet,
-} from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
@@ -13,7 +10,7 @@ import { NgxPermissionsService } from 'ngx-permissions';
   standalone: true,
 })
 export class App {
-  protected title = 'shell';
+  title = signal('shell');
   viewRouter = signal(true);
 
   permissions = inject(NgxPermissionsService);
@@ -28,7 +25,6 @@ export class App {
   }
 
   goToUrl(url: string) {
-    console.log(url);
     this.router.navigateByUrl(`${url}`);
     this.viewRouter.set(false);
     setTimeout(() => this.viewRouter.set(true));

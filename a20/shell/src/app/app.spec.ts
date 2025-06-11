@@ -1,25 +1,45 @@
 import { provideZonelessChangeDetection } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { App } from './app';
+import { describe, beforeEach, it, expect, vi } from 'vitest';
+import { NgxPermissionsModule } from 'ngx-permissions';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 
-describe('App', () => {
+describe('AppComponent con NgxPermissions', () => {
+  let fixture: ComponentFixture<App>;
+  let component: App;
+  let router: Router;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App],
-      providers: [provideZonelessChangeDetection()]
+      imports: [
+        App,
+        NgxPermissionsModule.forRoot(),
+        RouterTestingModule.withRoutes([]),
+      ],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(App);
+    component = fixture.componentInstance;
+    router = TestBed.inject(Router);
+    fixture.detectChanges();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(App);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, shell');
+  it('should navigate to the given url and toggle viewRouter', async () => {
+    const navigateByUrlSpy = vi.spyOn(router, 'navigateByUrl');
+    const setSpy = vi.spyOn(component.viewRouter, 'set');
+
+    component.goToUrl('/test-url');
+
+    expect(navigateByUrlSpy).toHaveBeenCalledWith('/test-url');
+    expect(setSpy).toHaveBeenCalledWith(false);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(setSpy).toHaveBeenCalledWith(true);
   });
 });
