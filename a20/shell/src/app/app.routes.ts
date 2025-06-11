@@ -1,6 +1,6 @@
 import { Routes, UrlMatcher } from '@angular/router';
 import { Home } from './home/home';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFound } from './not-found/not-found';
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { Wrapper } from './wrapper/wrapper';
 import { WrapperConfig } from './wrapper/wrapper-config-type';
@@ -72,7 +72,7 @@ export const routes: Routes = [
 
   {
     path: '**',
-    component: NotFoundComponent,
+    component: NotFound,
   },
 
   // DO NOT insert routes after this one.
