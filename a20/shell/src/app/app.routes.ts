@@ -1,15 +1,15 @@
 import { Routes, UrlMatcher } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { Home } from './home/home';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { loadRemoteModule } from '@angular-architects/native-federation';
-import { WrapperComponent } from './wrapper/wrapper.component';
+import { Wrapper } from './wrapper/wrapper';
 import { WrapperConfig } from './wrapper/wrapper-config-type';
 import { startsWith } from './starts-with';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: Home,
     pathMatch: 'full',
   },
 
@@ -24,7 +24,7 @@ export const routes: Routes = [
 
   {
     path: 'angular19',
-    component: WrapperComponent,
+    component: Wrapper,
     data: {
       config: {
         remoteName: 'remote-angular19', // Shell: Es el name que esta en el federation.manifest.json
@@ -36,7 +36,7 @@ export const routes: Routes = [
 
   {
     matcher: startsWith('angular18'),
-    component: WrapperComponent,
+    component: Wrapper,
     data: {
       config: {
         remoteName: 'mfa18', // Shell: Es el name que esta en el federation.manifest.json
@@ -47,7 +47,7 @@ export const routes: Routes = [
   },
   {
     path: 'svelte-mfe',
-    component: WrapperComponent,
+    component: Wrapper,
     data: {
       config: {
         remoteName: 'svelte-mfe',
@@ -60,7 +60,7 @@ export const routes: Routes = [
   // Resuelve conflictos en urls, que el remote y el padre tengan igual
   {
     matcher: startsWith('profile'),
-    component: WrapperComponent,
+    component: Wrapper,
     data: {
       config: {
         remoteName: 'mfe3',
