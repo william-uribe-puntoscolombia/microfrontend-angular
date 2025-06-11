@@ -2,5 +2,6 @@
 	"remote-angular20": "http://localhost:4201/remoteEntry.json",
 	"remote-angular19": "http://localhost:4202/remoteEntry.json",
 	"mfe3": "http://localhost:4202/remoteEntry.json",
-	"svelte-mfe": "https://kind-grass-08faefd03.4.azurestaticapps.net/remoteEntry.json"
+	"svelte-mfe": "https://kind-grass-08faefd03.4.azurestaticapps.net/remoteEntry.json",
+	"mfa18": "http://localhost:4203/remoteEntry.json"
 }

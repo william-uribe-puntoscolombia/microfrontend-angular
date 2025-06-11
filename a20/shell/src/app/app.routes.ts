@@ -17,8 +17,9 @@ export const routes: Routes = [
   {
     path: 'angular20',
     loadComponent: () =>
-      loadRemoteModule('remote-angular20', 'users-list').then((m) => m.UsersList),
-
+      loadRemoteModule('remote-angular20', 'users-list').then(
+        (m) => m.UsersList
+      ),
   },
 
   {
@@ -28,11 +29,22 @@ export const routes: Routes = [
       config: {
         remoteName: 'remote-angular19', // Shell: Es el name que esta en el federation.manifest.json
         exposedModule: './UsersList', // Remoto: El nombre del elemento expuesto en el remoto (exposes{...} federation.config.js del remoto)
-        elementName: 'app-users-list-webcomp' // Remoto: El nombre del WebComponent(DOM Element) ver:(src/app/pages/users-list/users-list.webcomponent.ts)
+        elementName: 'app-users-list-webcomp', // Remoto: El nombre del WebComponent(DOM Element) ver:(src/app/pages/users-list/users-list.webcomponent.ts)
       } as WrapperConfig,
     },
   },
 
+  {
+    matcher: startsWith('angular18'),
+    component: WrapperComponent,
+    data: {
+      config: {
+        remoteName: 'mfa18', // Shell: Es el name que esta en el federation.manifest.json
+        exposedModule: './web-component', // Remoto: El nombre del elemento expuesto en el remoto (exposes{...} federation.config.js del remoto)
+        elementName: 'app-users-mf18', // Remoto: El nombre del WebComponent(DOM Element) ver:(src/app/pages/users-list/users-list.webcomponent.ts)
+      } as WrapperConfig,
+    },
+  },
   {
     path: 'svelte-mfe',
     component: WrapperComponent,
@@ -44,7 +56,6 @@ export const routes: Routes = [
       } as WrapperConfig,
     },
   },
-
 
   // Resuelve conflictos en urls, que el remote y el padre tengan igual
   {
@@ -67,9 +78,6 @@ export const routes: Routes = [
   // DO NOT insert routes after this one.
   // { path:'**', ...} needs to be the LAST one.
 ];
-
-
-
 
 //------------------
 // import { loadRemoteModule } from '@angular-architects/native-federation';

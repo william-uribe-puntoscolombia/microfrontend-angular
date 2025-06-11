@@ -1,27 +1,24 @@
-const { withNativeFederation, shareAll } = require('@angular-architects/native-federation/config');
+const {
+  withNativeFederation,
+} = require("@angular-architects/native-federation/config");
 
 module.exports = withNativeFederation({
-
-  name: 'mf-users',
+  name: "mfa18",
 
   exposes: {
-
-    'users-list': './src/app/pages/users-list/users-list.component.ts',
+    "./web-component": "./src/app/app.webcomponent.ts",
   },
 
-  shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
-  },
+  shared: {},
 
   skip: [
-    'rxjs/ajax',
-    'rxjs/fetch',
-    'rxjs/testing',
-    'rxjs/webSocket',
+    "rxjs/ajax",
+    "rxjs/fetch",
+    "rxjs/testing",
+    "rxjs/webSocket",
     // Add further packages you don't need at runtime
-  ]
+  ],
 
   // Please read our FAQ about sharing libs:
   // https://shorturl.at/jmzH0
-
 });
