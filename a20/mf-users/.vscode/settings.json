@@ -1,10 +1,29 @@
 {
+  // Pritter default formatter
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  // Intellisense tailwind : this could be the same that styles.scss -> html{font-size:14px}
+  "tailwindCSS.rootFontSize": 16,
+  // Use default LF, for OS Windows and Mac end line.
+  "files.eol": "\n",
+  // Extension css variables, Help variables of PrimeNg
+  "cssVariables.lookupFiles": ["node_modules/@pco-front-assets/styles/_variables.scss"],
+  // Sonnarlint
+  "sonarlint.focusOnNewCode": true,
+  "sonarlint.connectedMode.project": {
+    "connectionId": "sonar-puntoscolombia",
+    "projectKey": "DevOpsPCO_pco-laas-front"
+  },
+
+  // Customize each Micro
   "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#3b3340",
-    "titleBar.activeForeground": "#ecf0f1",
-    "titleBar.inactiveBackground": "#3b3340",
-    "titleBar.inactiveForeground": "#bdc3c7",
-    "activityBar.background": "#3b3340",
-    "activityBar.foreground": "#ecf0f1",
-  }
+    "titleBar.activeBackground": "#7678ed",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#6466ca",
+    "titleBar.inactiveForeground": "#ffffff"
+  },
+  "window.title": "✦ USERS ✦  ${activeEditorMedium}"
 }
