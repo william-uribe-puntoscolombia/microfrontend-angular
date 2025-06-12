@@ -20,12 +20,10 @@
 
   // Customize each Micro
   "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#911bff",
+    "titleBar.activeBackground": "#7678ed",
     "titleBar.activeForeground": "#ffffff",
-    "titleBar.inactiveBackground": "#7e17dd",
+    "titleBar.inactiveBackground": "#6466ca",
     "titleBar.inactiveForeground": "#ffffff"
-    // "activityBar.background": "#911bff",
-    // "activityBar.foreground": "#FFFFFF"
   },
   "window.title": "✦ USERS ✦  ${activeEditorMedium}"
 }
