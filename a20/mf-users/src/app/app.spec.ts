@@ -1,9 +1,10 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { App } from './app';
-import { describe, beforeEach, it, expect, vi } from 'vitest';
+import { RouterModule } from '@angular/router';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { RouterTestingModule } from '@angular/router/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
+
+import { App } from './app';
 
 describe('AppComponent con NgxPermissions', () => {
   let fixture: ComponentFixture<App>;
@@ -11,11 +12,7 @@ describe('AppComponent con NgxPermissions', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        App,
-        NgxPermissionsModule.forRoot(),
-        RouterTestingModule.withRoutes([]),
-      ],
+      imports: [App, NgxPermissionsModule.forRoot(), RouterModule.forRoot([])],
       providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
@@ -27,5 +24,4 @@ describe('AppComponent con NgxPermissions', () => {
   it('should create the app', () => {
     expect(component).toBeTruthy();
   });
-
 });

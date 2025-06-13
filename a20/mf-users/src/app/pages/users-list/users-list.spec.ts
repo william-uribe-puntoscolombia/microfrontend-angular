@@ -1,10 +1,9 @@
-import { describe, beforeEach, it, expect } from 'vitest';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgxPermissionsAllowStubDirective, NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { UsersList } from './users-list';
-import {  provideZonelessChangeDetection } from '@angular/core';
-import { NgxPermissionsAllowStubDirective, NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
-import { By } from '@angular/platform-browser';
 
 describe('UsersList', () => {
   let component: UsersList;
@@ -12,11 +11,9 @@ describe('UsersList', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ UsersList, NgxPermissionsModule.forRoot({}), NgxPermissionsAllowStubDirective],
-      providers: [provideZonelessChangeDetection()]
-    })
-    .compileComponents();
-
+      imports: [UsersList, NgxPermissionsModule.forRoot({}), NgxPermissionsAllowStubDirective],
+      providers: [provideZonelessChangeDetection()],
+    }).compileComponents();
 
     TestBed.inject(NgxPermissionsService).loadPermissions(['user:list']);
 
@@ -31,12 +28,10 @@ describe('UsersList', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     console.log('HTML content:', compiled.outerHTML);
 
-      // const content = fixture.debugElement.nativeElement.querySelector('.container');
-      // console.log('->', content.textContent);
+    // const content = fixture.debugElement.nativeElement.querySelector('.container');
+    // console.log('->', content.textContent);
 
-      // const content = fixture.debugElement
-      // console.log('->', content.nativeElement.textContent);
-
-
+    // const content = fixture.debugElement
+    // console.log('->', content.nativeElement.textContent);
   });
 });

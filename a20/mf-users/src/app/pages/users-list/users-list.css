@@ -1,10 +1,9 @@
-:host{
+:host {
   /* border: 1px solid red; */
   display: flex;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   border-radius: 1rem;
   width: 100%;
-
 }
 
 .container {
@@ -34,7 +33,7 @@ h2 {
   color: white;
   font-weight: 500;
   padding: 0.2rem 0;
-  border-radius:  var(--radius) var(--radius) 0% 0%;
+  border-radius: var(--radius) var(--radius) 0% 0%;
 }
 
 .header-cell {
@@ -43,8 +42,6 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
-
-
 
 .table-row {
   display: grid;
@@ -104,13 +101,15 @@ button {
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
-  .table-header, .table-row {
+  .table-header,
+  .table-row {
     grid-template-columns: 0.5fr 1fr 1.5fr 1fr;
   }
 }
 
 @media screen and (max-width: 576px) {
-  .table-header, .table-row {
+  .table-header,
+  .table-row {
     grid-template-columns: 1fr;
     padding: 0.4rem 0;
   }

@@ -3,8 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { App } from './app';
 import { describe, beforeEach, it, expect, vi } from 'vitest';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { RouterTestingModule } from '@angular/router/testing';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 describe('AppComponent con NgxPermissions', () => {
   let fixture: ComponentFixture<App>;
@@ -16,7 +15,7 @@ describe('AppComponent con NgxPermissions', () => {
       imports: [
         App,
         NgxPermissionsModule.forRoot(),
-        RouterTestingModule.withRoutes([]),
+        RouterModule.forRoot([])
       ],
       providers: [provideZonelessChangeDetection()],
     }).compileComponents();

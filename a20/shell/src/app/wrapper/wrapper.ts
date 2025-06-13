@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
   styles: '',
   standalone: true,
 })
-export class WrapperComponent implements OnInit {
+export class Wrapper implements OnInit {
   /**
    * Obtiene la instancia actual
    */
@@ -44,7 +44,9 @@ export class WrapperComponent implements OnInit {
       .map((r) => r.url.map((u) => u.path).join('/'))
       .filter((value) => value !== '')
       .join('/');
+
     const fullPathSegments = fullPath.split('/');
+
     const subPath =
       fullPathSegments.length > 1
         ? fullPath.replace(`${fullPathSegments[0]}/`, '')
