@@ -1,7 +1,8 @@
-import { describe, beforeEach, it, expect } from 'vitest';
-import { Home } from './home';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
+
+import { Home } from './home';
 
 describe('Home', () => {
   let component: Home;
@@ -10,9 +11,8 @@ describe('Home', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Home],
-      providers: [provideZonelessChangeDetection()]
-    })
-    .compileComponents();
+      providers: [provideZonelessChangeDetection()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Home);
     component = fixture.componentInstance;
@@ -28,7 +28,7 @@ describe('Home', () => {
     expect(element).toBeDefined();
   });
 
-    it('should render title', () => {
+  it('should render title', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
     expect(compiled.querySelector('h1')?.textContent).toContain('Bienvenido al home');

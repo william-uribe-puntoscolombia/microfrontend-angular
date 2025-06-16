@@ -1,15 +1,15 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
-  selector: 'app-root',
+  selector: 'shell-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true,
 })
-export class App {
+export class App implements OnInit {
   title = signal('shell');
   viewRouter = signal(true);
 
@@ -29,5 +29,4 @@ export class App {
     this.viewRouter.set(false);
     setTimeout(() => this.viewRouter.set(true));
   }
-
 }

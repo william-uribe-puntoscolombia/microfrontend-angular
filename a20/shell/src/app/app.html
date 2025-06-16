@@ -1,22 +1,40 @@
 <header>
   <nav>
     <ul>
-      <li><a (click)="goToUrl('/')">Home</a></li>
-      <li><a (click)="goToUrl('/angular20')">Angular 20</a></li>
-      <li><a (click)="goToUrl('/angular19')">Angular 19</a></li>
+      <li><a (click)="goToUrl('/')" (keyup.enter)="goToUrl('/')" tabindex="0" role="button">Home</a></li>
       <li>
-        <a (click)="goToUrl('/angular18')">Angular 18</a>
+        <a (click)="goToUrl('/angular20')" (keyup.enter)="goToUrl('/angular20')" tabindex="0" role="button">
+          Angular 20
+        </a>
       </li>
-      <li><a (click)="goToUrl('/profile')">Your Profile</a></li>
-      <li><a (click)="goToUrl('/svelte-mfe')">Svelte-mfe</a></li>
+      <li>
+        <a (click)="goToUrl('/angular19')" (keyup.enter)="goToUrl('/angular19')" tabindex="0" role="button">
+          Angular 19
+        </a>
+      </li>
+      <li>
+        <a (click)="goToUrl('/angular18')" (keyup.enter)="goToUrl('/angular18')" tabindex="0" role="button">
+          Angular 18
+        </a>
+      </li>
+      <li>
+        <a (click)="goToUrl('/profile')" (keyup.enter)="goToUrl('/profile')" tabindex="0" role="button">
+          Your Profile
+        </a>
+      </li>
+      <li>
+        <a (click)="goToUrl('/svelte-mfe')" (keyup.enter)="goToUrl('/svelte-mfe')" tabindex="0" role="button">
+          Svelte-mfe
+        </a>
+      </li>
     </ul>
 
     <span> [ Angular 20 ] </span>
   </nav>
 </header>
 
-@if(viewRouter()){
-<main>
-  <router-outlet />
-</main>
+@if (viewRouter()) {
+  <main>
+    <router-outlet />
+  </main>
 }
