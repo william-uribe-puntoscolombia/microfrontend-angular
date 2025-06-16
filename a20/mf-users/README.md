@@ -1,12 +1,10 @@
 # Microfrontend base
 
-
 ```bash
 npm run start
 ```
 
 En Angular.json esta el puerto ejemplo `http://localhost:4201/`
-
 
 ## Tests
 
@@ -17,7 +15,7 @@ npm run test
 ```
 
 ```ts
-// Requiere imports 
+// Requiere imports
 import { describe, beforeEach, it, expect } from 'vitest';
 
 // Requiere agregar el provider `provideZonelessChangeDetection`:
@@ -32,18 +30,20 @@ beforeEach(async () => {
 ## Ngx-Permissions
 
 Uso en directivas
+
 ```html
 <!-- Uso en directivas -->
-<div class="users-table" *ngxPermissionsOnly="['user:list']">
+<div class="users-table" *ngxPermissionsOnly="['user:list']"></div>
 ```
 
 Uso en componentes
+
 ```ts
 // Inject the service
-permissions  = inject(NgxPermissionsService)
+permissions = inject(NgxPermissionsService);
 
 // Add roles
-const roles = ["user:list"];
+const roles = ['user:list'];
 this.permissions.loadPermissions(roles);
 
 // Get roles
@@ -54,15 +54,31 @@ Uso en tests
 
 ```ts
 
+```
 
+## Linter y formateo
+
+- Instalar las extensiones de vscode
+- Se configura el linter y formateo con `eslint` y `prettier`
+
+## Configuración de la aplicación
+
+- Personalizar el vscode
+- Personalizar el eslint
+- Se crean los comandos:
+
+```sh
+$ npm run lint
+$ npm run lint:fix
+$ npm run format:css
 ```
 
 ---
 
 ## Running end-to-end tests
+
 For end-to-end (e2e) testing, run:
 
 ```bash
 ng e2e
 ```
-

@@ -35,24 +35,13 @@ module.exports = tseslint.config(
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'no-duplicate-imports': 'error',
-      // // Angular directive name prefix the name: app
-      // 'no-const-assign': 'error',
-      // // typescript: any
-      // '@typescript-eslint/no-explicit-any': 'off',
-      // // Classes should be in PascalCase
-      // '@typescript-eslint/naming-convention': [
-      //   'error',
-      //   {
-      //     selector: ['class', 'interface'],
-      //     format: ['PascalCase'],
-      //   },
-      // ],
+
       // -- Default angular name html elements --
       '@angular-eslint/directive-selector': [
         'error',
         {
           type: 'attribute',
-          prefix: 'mf-user',
+          prefix: 'mf-users',
           style: 'camelCase',
         },
       ],
