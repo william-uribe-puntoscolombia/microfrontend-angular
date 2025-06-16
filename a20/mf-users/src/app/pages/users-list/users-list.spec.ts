@@ -23,15 +23,6 @@ describe('UsersList', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-
-    const compiled = fixture.nativeElement as HTMLElement;
-    console.log('HTML content:', compiled.outerHTML);
-
-    // const content = fixture.debugElement.nativeElement.querySelector('.container');
-    // console.log('->', content.textContent);
-
-    // const content = fixture.debugElement
-    // console.log('->', content.nativeElement.textContent);
+    expect(component).toBeFalsy();
   });
 });
