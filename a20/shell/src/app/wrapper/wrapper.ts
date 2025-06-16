@@ -2,14 +2,15 @@
  * Encapsula el componente remoto en este componente
  * crea un componente con el remoto y lo ingresa en el appendChild de este.
  */
-import { Component, ElementRef, Input, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { loadRemoteModule } from '@softarc/native-federation-runtime';
-import { WrapperConfig } from './wrapper-config-type';
+import { Component, ElementRef, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { loadRemoteModule } from '@softarc/native-federation-runtime';
+
+import { WrapperConfig } from './wrapper-config-type';
 
 @Component({
-  selector: 'app-wrapper',
+  selector: 'shell-wrapper',
   imports: [CommonModule],
   template: '',
   styles: '',
@@ -47,10 +48,7 @@ export class Wrapper implements OnInit {
 
     const fullPathSegments = fullPath.split('/');
 
-    const subPath =
-      fullPathSegments.length > 1
-        ? fullPath.replace(`${fullPathSegments[0]}/`, '')
-        : '';
+    const subPath = fullPathSegments.length > 1 ? fullPath.replace(`${fullPathSegments[0]}/`, '') : '';
 
     root.setAttribute('route', subPath);
 

@@ -1,10 +1,11 @@
-import { Routes, UrlMatcher } from '@angular/router';
+import { Routes } from '@angular/router';
+import { loadRemoteModule } from '@angular-architects/native-federation';
+
 import { Home } from './home/home';
 import { NotFound } from './not-found/not-found';
-import { loadRemoteModule } from '@angular-architects/native-federation';
+import { startsWith } from './starts-with';
 import { Wrapper } from './wrapper/wrapper';
 import { WrapperConfig } from './wrapper/wrapper-config-type';
-import { startsWith } from './starts-with';
 
 export const routes: Routes = [
   {
@@ -16,10 +17,7 @@ export const routes: Routes = [
   // Add this route:
   {
     path: 'angular20',
-    loadComponent: () =>
-      loadRemoteModule('remote-angular20', 'users-list').then(
-        (m) => m.UsersList
-      ),
+    loadComponent: () => loadRemoteModule('remote-angular20', 'users-list').then((m) => m.UsersList),
   },
 
   {
