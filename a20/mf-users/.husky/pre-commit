@@ -1,0 +1,2 @@
+# Linter check (package.json/lint-staged: run pritter, eslint --fix)
+lint-staged

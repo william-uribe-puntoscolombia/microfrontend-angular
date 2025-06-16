@@ -12,7 +12,8 @@
     "test:ui": "vitest --coverage --ui",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "format:css": "prettier --write \"src/**/*.css\""
+    "format:css": "prettier --write \"src/**/*.css\"",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -43,11 +44,19 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "husky": "^9.1.7",
     "jsdom": "^26.1.0",
-    "tailwindcss": "3.4.17",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.5.3",
+    "tailwindcss": "3.4.17",
     "typescript": "~5.8.3",
     "typescript-eslint": "8.33.1",
     "vitest": "^3.2.3"
+  },
+  "lint-staged": {
+    "*": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
