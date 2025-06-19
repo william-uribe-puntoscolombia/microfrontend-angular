@@ -1,8 +1,9 @@
-import { describe, beforeEach, it, expect } from 'vitest';
-import { Home } from './home';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { getTranslocoModule } from '../transloco-testing.module';
+import { beforeEach, describe, expect, it } from 'vitest';
+
+import { Home } from './home';
 
 describe('Home', () => {
   let component: Home;

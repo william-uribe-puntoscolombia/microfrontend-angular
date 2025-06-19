@@ -41,7 +41,7 @@ module.exports = tseslint.config(
         'error',
         {
           type: 'attribute',
-          prefix: 'mf-users',
+          prefix: 'shell',
           style: 'camelCase',
         },
       ],
@@ -49,7 +49,7 @@ module.exports = tseslint.config(
         'error',
         {
           type: 'element',
-          prefix: 'mf-users',
+          prefix: 'shell',
           style: 'kebab-case',
         },
       ],

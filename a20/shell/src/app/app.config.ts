@@ -1,6 +1,12 @@
-import { ApplicationConfig, importProvidersFrom, isDevMode, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import {
+  ApplicationConfig,
+  importProvidersFrom, isDevMode,
+  provideBrowserGlobalErrorListeners,
+  provideZonelessChangeDetection,
+} from '@angular/core';
+import { provideRouter } from '@angular/router';
 import { NgxPermissionsModule } from 'ngx-permissions';
+
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { provideTransloco } from '@jsverse/transloco';
@@ -18,11 +24,11 @@ export const appConfig: ApplicationConfig = {
     provideTransloco({
       config: {
         availableLangs: ['en', 'es'],
-        defaultLang: 'es',
+        defaultLang: 'en',
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       },
       loader: TranslocoHttpLoader,
     }),
-  ]
+  ],
 };

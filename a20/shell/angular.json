@@ -56,8 +56,12 @@
               },
               "src/assets"
             ],
-            "styles": ["src/styles.css"],
-            "polyfills": ["es-module-shims"]
+            "styles": [
+              "src/styles.css"
+            ],
+            "polyfills": [
+              "es-module-shims"
+            ]
           },
           "configurations": {
             "production": {
@@ -97,11 +101,23 @@
           "options": {
             "port": 4200
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }

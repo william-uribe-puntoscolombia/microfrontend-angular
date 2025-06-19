@@ -1,13 +1,14 @@
-import { describe, beforeEach, it, expect } from 'vitest';
-import { Wrapper } from './wrapper';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+import { beforeEach, describe, expect, it } from 'vitest';
+
+import { Wrapper } from './wrapper';
 
 describe('Wrapper', () => {
   let component: Wrapper;
   let fixture: ComponentFixture<Wrapper>;
-  let mockedActivatedRoute = {
+  const mockedActivatedRoute = {
     snapshot: {
       data: {
         config: {
@@ -17,17 +18,13 @@ describe('Wrapper', () => {
         },
       },
     },
-  }
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Wrapper],
-      providers: [
-        provideZonelessChangeDetection(),
-        { provide: ActivatedRoute, useValue: mockedActivatedRoute },
-      ]
-    })
-    .compileComponents();
+      providers: [provideZonelessChangeDetection(), { provide: ActivatedRoute, useValue: mockedActivatedRoute }],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Wrapper);
     component = fixture.componentInstance;
@@ -37,7 +34,4 @@ describe('Wrapper', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
-
 });
