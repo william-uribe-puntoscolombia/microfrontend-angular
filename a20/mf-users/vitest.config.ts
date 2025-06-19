@@ -21,7 +21,7 @@ export default async () => {
           '.angular/**',
           '**/*.routes.ts',
           '**/*.config.ts',
-          'eslint.config.js',
+          'eslint.config.js'
         ],
         enabled: true,
         reporter: ['text', 'json', 'html', 'lcov'],

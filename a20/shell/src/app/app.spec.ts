@@ -5,6 +5,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { App } from './app';
+import { getTranslocoModule } from './transloco-testing.module';
 
 describe('AppComponent con NgxPermissions', () => {
   let fixture: ComponentFixture<App>;
@@ -13,7 +14,8 @@ describe('AppComponent con NgxPermissions', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App, NgxPermissionsModule.forRoot(), RouterModule.forRoot([])],
+      imports: [App, NgxPermissionsModule.forRoot(), RouterModule.forRoot([]),
+        getTranslocoModule(),],
       providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 

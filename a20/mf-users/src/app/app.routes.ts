@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { provideTranslocoScope } from '@jsverse/transloco';
 
 export const routes: Routes = [
   {

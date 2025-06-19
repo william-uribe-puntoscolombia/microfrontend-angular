@@ -16,7 +16,7 @@ export const routes: Routes = [
 
   // Add this route:
   {
-    path: 'angular20',
+    matcher: startsWith('angular20'),
     loadComponent: () => loadRemoteModule('remote-angular20', 'users-list').then((m) => m.UsersList),
   },
 

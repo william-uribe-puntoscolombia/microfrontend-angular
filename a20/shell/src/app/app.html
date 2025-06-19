@@ -1,32 +1,20 @@
 <header>
   <nav>
     <ul>
-      <li><a (click)="goToUrl('/')" (keyup.enter)="goToUrl('/')" tabindex="0" role="button">Home</a></li>
+      <li><a (click)="goToUrl('/')">{{ 'home' | transloco }}</a></li>
       <li>
-        <a (click)="goToUrl('/angular20')" (keyup.enter)="goToUrl('/angular20')" tabindex="0" role="button">
-          Angular 20
-        </a>
+        <a (click)="goToUrl('/angular20')">{{ 'angular20' | transloco }}</a>
       </li>
       <li>
-        <a (click)="goToUrl('/angular19')" (keyup.enter)="goToUrl('/angular19')" tabindex="0" role="button">
-          Angular 19
-        </a>
+        <a (click)="goToUrl('/angular19')">{{ 'angular19' | transloco }}</a>
       </li>
       <li>
-        <a (click)="goToUrl('/angular18')" (keyup.enter)="goToUrl('/angular18')" tabindex="0" role="button">
-          Angular 18
-        </a>
+        <a (click)="goToUrl('/angular18')">{{ 'angular18' | transloco }}</a>
       </li>
+      <li><a (click)="goToUrl('/profile')">{{ 'profile' | transloco }}</a></li>
       <li>
-        <a (click)="goToUrl('/profile')" (keyup.enter)="goToUrl('/profile')" tabindex="0" role="button">
-          Your Profile
-        </a>
+        <a (click)="goToUrl('/svelte-mfe')">{{ 'svelte-mfe' | transloco }}</a>
       </li>
-      <!-- <li>
-        <a (click)="goToUrl('/svelte-mfe')" (keyup.enter)="goToUrl('/svelte-mfe')" tabindex="0" role="button">
-          Svelte-mfe
-        </a>
-      </li> -->
     </ul>
 
     <span> [ Angular 20 ] </span>

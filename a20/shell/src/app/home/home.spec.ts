@@ -1,5 +1,6 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { getTranslocoModule } from '../transloco-testing.module';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { Home } from './home';
@@ -10,7 +11,7 @@ describe('Home', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Home],
+      imports: [Home, getTranslocoModule()],
       providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
@@ -31,6 +32,8 @@ describe('Home', () => {
   it('should render title', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
-    expect(compiled.querySelector('h1')?.textContent).toContain('Bienvenido al home');
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'Bienvenido al Inicio'
+    );
   });
 });

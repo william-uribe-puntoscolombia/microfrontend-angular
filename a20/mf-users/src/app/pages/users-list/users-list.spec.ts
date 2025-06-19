@@ -4,6 +4,7 @@ import { NgxPermissionsAllowStubDirective, NgxPermissionsModule, NgxPermissionsS
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { UsersList } from './users-list';
+import { getTranslocoModule } from '../../transloco-testing.module';
 
 describe('UsersList', () => {
   let component: UsersList;
@@ -11,7 +12,7 @@ describe('UsersList', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UsersList, NgxPermissionsModule.forRoot({}), NgxPermissionsAllowStubDirective],
+      imports: [UsersList, NgxPermissionsModule.forRoot({}), NgxPermissionsAllowStubDirective, getTranslocoModule()],
       providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
@@ -24,14 +25,5 @@ describe('UsersList', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-
-    const compiled = fixture.nativeElement as HTMLElement;
-    console.log('HTML content:', compiled.outerHTML);
-
-    // const content = fixture.debugElement.nativeElement.querySelector('.container');
-    // console.log('->', content.textContent);
-
-    // const content = fixture.debugElement
-    // console.log('->', content.nativeElement.textContent);
   });
 });

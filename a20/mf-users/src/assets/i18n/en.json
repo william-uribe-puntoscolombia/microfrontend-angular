@@ -1,0 +1,12 @@
+{
+  "titleMfUser": "User Microfrontend",
+  "userList": {
+    "title": "User Angular 20",
+    "id": "id",
+    "name": "Name",
+    "email": "Email",
+    "action": "Actions",
+    "btnEdit": "Edit",
+    "btnDelete": "Delete"
+  }
+}

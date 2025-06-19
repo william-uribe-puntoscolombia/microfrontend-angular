@@ -1,12 +1,12 @@
-<div class="container">
-  <h2>Usuarios Angular 20</h2>
+<div class="container" *transloco="let t">
+  <h2>{{ 'mfUsers.userList.title' | transloco }}</h2>
 
-  <div class="users-table" *ngxPermissionsOnly="['user:list']">
+  <div class="users-table">
     <div class="table-header">
-      <div class="header-cell">ID</div>
-      <div class="header-cell">Name</div>
-      <div class="header-cell">Email</div>
-      <div class="header-cell">Actions</div>
+      <div class="header-cell">{{ 'mfUsers.userList.id' | transloco }}</div>
+      <div class="header-cell">{{ 'mfUsers.userList.name' | transloco }}</div>
+      <div class="header-cell">{{ 'mfUsers.userList.email' | transloco }}</div>
+      <div class="header-cell">{{ 'mfUsers.userList.action' | transloco }}</div>
     </div>
     <div class="table-body">
       <div class="table-row">
@@ -14,8 +14,8 @@
         <div class="cell">John Smith</div>
         <div class="cell">john.smith&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
       <div class="table-row">
@@ -23,8 +23,8 @@
         <div class="cell">Emma Johnson</div>
         <div class="cell">emma.johnson&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
       <div class="table-row">
@@ -32,8 +32,8 @@
         <div class="cell">Michael Williams</div>
         <div class="cell">michael.williams&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
       <div class="table-row">
@@ -41,8 +41,8 @@
         <div class="cell">Sophia Brown</div>
         <div class="cell">sophia.brown&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
       <div class="table-row">
@@ -50,8 +50,8 @@
         <div class="cell">Daniel Jones</div>
         <div class="cell">daniel.jones&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
       <div class="table-row">
@@ -59,8 +59,8 @@
         <div class="cell">Olivia Garcia</div>
         <div class="cell">olivia.garcia&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
       <div class="table-row">
@@ -68,8 +68,8 @@
         <div class="cell">James Miller</div>
         <div class="cell">james.miller&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
       <div class="table-row">
@@ -77,8 +77,8 @@
         <div class="cell">Ava Martinez</div>
         <div class="cell">ava.martinez&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
       <div class="table-row">
@@ -86,8 +86,8 @@
         <div class="cell">Alexander Davis</div>
         <div class="cell">alexander.davis&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
       <div class="table-row">
@@ -95,8 +95,8 @@
         <div class="cell">Isabella Rodriguez</div>
         <div class="cell">isabella.rodriguez&#64;example.com</div>
         <div class="cell">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-edit">{{ 'mfUsers.userList.btnEdit' | transloco }}</button>
+          <button class="btn-delete">{{ 'mfUsers.userList.btnDelete' | transloco }}</button>
         </div>
       </div>
     </div>
