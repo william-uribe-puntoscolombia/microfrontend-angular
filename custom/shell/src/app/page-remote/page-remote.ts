@@ -17,6 +17,8 @@ export class PageRemote {
     this.scriptElement.src = 'http://localhost:4201/main.js';
     this.scriptElement.type = 'module';
     document.head.appendChild(this.scriptElement);
+
+
   }
 
   ngOnDestroy(): void {
