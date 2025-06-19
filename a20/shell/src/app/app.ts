@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { TranslocoModule } from '@jsverse/transloco';
 import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, TranslocoModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true,
@@ -29,5 +30,4 @@ export class App {
     this.viewRouter.set(false);
     setTimeout(() => this.viewRouter.set(true));
   }
-
 }
