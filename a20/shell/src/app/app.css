@@ -53,3 +53,22 @@ main {
   margin: 0 auto;
   width: calc(100% - 2rem);
 }
+
+.mnu-side {
+  display: flex;
+  gap: 1rem;
+}
+
+.notification {
+  background-color: white;
+  color: #2ea297;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

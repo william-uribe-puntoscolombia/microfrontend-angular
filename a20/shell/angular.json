@@ -20,10 +20,19 @@
             "development": {
               "target": "shell:esbuild:development",
               "dev": true
+            },
+            "development-nfe": {
+              "target": "shell:esbuild:development",
+              "dev": true,
+              "devServer": false
+            },
+            "staging": {
+              "target": "shell:esbuild:staging"
             }
           },
           "defaultConfiguration": "production"
         },
+
         "serve": {
           "builder": "@angular-architects/native-federation:build",
           "options": {
@@ -33,9 +42,11 @@
             "port": 0
           }
         },
+
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
         },
+
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
@@ -44,6 +55,7 @@
             "runner": "vitest"
           }
         },
+
         "esbuild": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
@@ -56,15 +68,16 @@
               },
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "polyfills": [
-              "es-module-shims"
-            ]
+            "styles": ["src/styles.css"],
+            "polyfills": ["es-module-shims"]
           },
           "configurations": {
             "production": {
+              "extractLicenses": true,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -76,17 +89,38 @@
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
-              "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
+            },
+            "staging": {
+              "extractLicenses": true,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
         },
+
         "serve-original": {
           "builder": "@angular/build:dev-server",
           "configurations": {
@@ -95,6 +129,9 @@
             },
             "development": {
               "buildTarget": "shell:esbuild:development"
+            },
+            "staging": {
+              "buildTarget": "shell:esbuild:staging"
             }
           },
           "defaultConfiguration": "development",
@@ -102,13 +139,11 @@
             "port": 4200
           }
         },
+
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -116,8 +151,6 @@
   },
   "cli": {
     "analytics": false,
-    "schematicCollections": [
-      "angular-eslint"
-    ]
+    "schematicCollections": ["angular-eslint"]
   }
 }

@@ -31,9 +31,11 @@ describe('AppComponent con NgxPermissions', () => {
   it('should navigate to the given url and toggle viewRouter', async () => {
     const navigateByUrlSpy = vi.spyOn(router, 'navigateByUrl');
     const setSpy = vi.spyOn(component.viewRouter, 'set');
+    const mockEvent = { preventDefault: vi.fn() } as unknown as MouseEvent;
 
-    component.goToUrl('/test-url');
+    component.goToUrl(mockEvent, '/test-url');
 
+    expect(mockEvent.preventDefault).toHaveBeenCalled();
     expect(navigateByUrlSpy).toHaveBeenCalledWith('/test-url');
     expect(setSpy).toHaveBeenCalledWith(false);
     await new Promise((resolve) => setTimeout(resolve, 0));

@@ -18,8 +18,15 @@
               "target": "mf-users:esbuild:production"
             },
             "development": {
-              "target": "mf-users:esbuild:development",
-              "dev": true
+              "target": "mf-users:esbuild:development"
+            },
+            "development-nfe": {
+              "target": "shell:esbuild:development",
+              "dev": true,
+              "devServer": false
+            },
+            "staging": {
+              "target": "mf-users:esbuild:staging"
             }
           },
           "defaultConfiguration": "production"
@@ -56,15 +63,16 @@
               },
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "polyfills": [
-              "es-module-shims"
-            ]
+            "styles": ["src/styles.css"],
+            "polyfills": ["es-module-shims"]
           },
           "configurations": {
             "production": {
+              "extractLicenses": true,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -76,14 +84,33 @@
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
-              "optimization": false,
               "extractLicenses": false,
+              "optimization": false,
+              "outputHashing": "none",
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
+            },
+            "staging": {
+              "extractLicenses": true,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -96,6 +123,9 @@
             },
             "development": {
               "buildTarget": "mf-users:esbuild:development"
+            },
+            "staging": {
+              "buildTarget": "mf-users:esbuild:staging"
             }
           },
           "defaultConfiguration": "development",
@@ -106,19 +136,14 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": [
-      "angular-eslint"
-    ],
+    "schematicCollections": ["angular-eslint"],
     "analytics": false
   }
 }
