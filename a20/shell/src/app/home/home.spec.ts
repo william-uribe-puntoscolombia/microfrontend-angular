@@ -1,8 +1,8 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { getTranslocoModule } from '../transloco-testing.module';
 import { beforeEach, describe, expect, it } from 'vitest';
 
+import { getTranslocoModule } from '../transloco-testing.module';
 import { Home } from './home';
 
 describe('Home', () => {
@@ -32,8 +32,6 @@ describe('Home', () => {
   it('should render title', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Bienvenido al Inicio'
-    );
+    expect(compiled.querySelector('h1')?.textContent).toContain('Bienvenido al Inicio');
   });
 });

@@ -14,8 +14,7 @@ describe('AppComponent con NgxPermissions', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App, NgxPermissionsModule.forRoot(), RouterModule.forRoot([]),
-        getTranslocoModule(),],
+      imports: [App, NgxPermissionsModule.forRoot(), RouterModule.forRoot([]), getTranslocoModule()],
       providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 

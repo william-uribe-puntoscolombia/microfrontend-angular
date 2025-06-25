@@ -4,7 +4,7 @@ import { TranslocoModule } from '@jsverse/transloco';
 @Component({
   standalone: true,
   imports: [TranslocoModule],
-  selector: 'app-home',
+  selector: 'shell-home',
   templateUrl: './home.html',
 })
 export class Home {}

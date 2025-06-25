@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgxPermissionsAllowStubDirective, NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { UsersList } from './users-list';
 import { getTranslocoModule } from '../../transloco-testing.module';
+import { UsersList } from './users-list';
 
 describe('UsersList', () => {
   let component: UsersList;

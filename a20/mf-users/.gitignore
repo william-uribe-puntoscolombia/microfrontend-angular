@@ -42,7 +42,7 @@ testem.log
 Thumbs.db
 
 # Package manager lock files
-/package-lock.json
-/pnpm-lock.yaml
-/yarn.lock
-/bun.lockb
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock

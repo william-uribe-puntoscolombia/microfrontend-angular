@@ -1,8 +1,8 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { getTranslocoModule } from '../transloco-testing.module';
 import { beforeEach, describe, expect, it } from 'vitest';
 
+import { getTranslocoModule } from '../transloco-testing.module';
 import { NotFound } from './not-found';
 
 describe('NotFound', () => {

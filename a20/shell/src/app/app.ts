@@ -25,7 +25,9 @@ export class App implements OnInit {
     console.log('shell:\n', this.permissions.getPermissions());
   }
 
-  goToUrl(url: string) {
+  goToUrl(event: MouseEvent, url: string) {
+    event.preventDefault();
+
     this.router.navigateByUrl(`${url}`);
     this.viewRouter.set(false);
     setTimeout(() => this.viewRouter.set(true));

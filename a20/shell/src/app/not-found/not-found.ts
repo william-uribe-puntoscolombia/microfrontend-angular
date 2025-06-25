@@ -3,8 +3,8 @@ import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
   standalone: true,
-  selector: 'app-not-found',
+  selector: 'shell-not-found',
   templateUrl: './not-found.html',
-  imports: [TranslocoModule]
+  imports: [TranslocoModule],
 })
 export class NotFound {}

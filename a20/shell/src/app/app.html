@@ -1,24 +1,20 @@
 <header>
-  <nav>
-    <ul>
-      <li><a (click)="goToUrl('/')">{{ 'home' | transloco }}</a></li>
-      <li>
-        <a (click)="goToUrl('/angular20')">{{ 'angular20' | transloco }}</a>
-      </li>
-      <li>
-        <a (click)="goToUrl('/angular19')">{{ 'angular19' | transloco }}</a>
-      </li>
-      <li>
-        <a (click)="goToUrl('/angular18')">{{ 'angular18' | transloco }}</a>
-      </li>
-      <li><a (click)="goToUrl('/profile')">{{ 'profile' | transloco }}</a></li>
-      <li>
-        <a (click)="goToUrl('/svelte-mfe')">{{ 'svelte-mfe' | transloco }}</a>
-      </li>
-    </ul>
+  <ul>
+    <li>
+      <a href="#" (click)="goToUrl($event, '/')">{{ 'home' | transloco }}</a>
+    </li>
+    <li>
+      <a href="#" (click)="goToUrl($event, '/angular20')">{{ 'angular20' | transloco }}</a>
+    </li>
+    <li>
+      <a href="#" (click)="goToUrl($event, '/angular19')">{{ 'angular19' | transloco }}</a>
+    </li>
+    <li>
+      <a href="#" (click)="goToUrl($event, '/angular18')">{{ 'angular18' | transloco }}</a>
+    </li>
+  </ul>
 
-    <span> [ Angular 20 ] </span>
-  </nav>
+  <span> ( Shell Angular 20 ) </span>
 </header>
 
 @if (viewRouter()) {
