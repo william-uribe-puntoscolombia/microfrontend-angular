@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import './tailwind.css';
 
 :root {
   --text-color: #fff;
@@ -27,3 +25,5 @@ main {
   width: 100%;
   /* border: 1px solid rgba(255, 255, 255, 0.2); */
 }
+
+

@@ -70,10 +70,6 @@
       "prettier --write --ignore-unknown"
     ]
   },
-  "overrides": {
-    "@angular/core": "20.0.5",
-    "@angular/common": "20.0.5"
-  },
   "engines": {
     "bun": "1.2.16"
   }

@@ -1,0 +1,49 @@
+<div class="container">
+  <form class="grid gap-6 m-auto h-fit p-8" [formGroup]="myForm">
+    <h1 class="text-center text-[18px] font-bold">Formulario Reactivo</h1>
+
+    <div class="col-12">
+      <label for="" class="block">Nombre</label>
+      <input
+        type="text"
+        class="rounded p-1 w-full"
+        formControlName="name"
+        [ngClass]="{ 'ng-invalid': checkFieldError('name') }"
+      />
+      @if (checkFieldError('name')) {
+        <div class="ng-invalid-text">{{ checkFieldError('name') }}</div>
+      }
+    </div>
+    <div class="col-12">
+      <label for="" class="block">Apellido</label>
+      <input
+        type="text"
+        class="rounded p-1 w-full"
+        formControlName="lastname"
+        [ngClass]="{ 'ng-invalid': checkFieldError('lastname') }"
+      />
+      @if (checkFieldError('lastname')) {
+        <div class="ng-invalid-text">{{ checkFieldError('lastname') }}</div>
+      }
+    </div>
+    <div class="col-12">
+      <label for="" class="block">Correo</label>
+      <input
+        type="text"
+        class="rounded p-1 w-full"
+        formControlName="email"
+        [ngClass]="{ 'ng-invalid': checkFieldError('email') }"
+      />
+      @if (checkFieldError('email')) {
+        <div class="ng-invalid-text">{{ checkFieldError('email') }}</div>
+      }
+    </div>
+    <div class="col-12 text-center">
+      <button class="rounded p-1" style="width: 200px" type="submit" [disabled]="formError().length !== 0">
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>
+
+<p>{{ myForm.value | json }}</p>

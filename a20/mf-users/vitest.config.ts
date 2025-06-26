@@ -1,9 +1,17 @@
+import { resolve } from 'path';
 import { defineConfig } from 'vitest/config';
 
 export default async () => {
   const angular = (await import('@analogjs/vite-plugin-angular')).default;
   return defineConfig({
     plugins: [angular()],
+    resolve: {
+      alias: {
+        '@core': resolve(__dirname, 'src/app/core'),
+        '@pages': resolve(__dirname, 'src/app/pages'),
+        '@env': resolve(__dirname, 'src/environments/environment'),
+      },
+    },
 
     test: {
       environment: 'jsdom',
@@ -14,6 +22,8 @@ export default async () => {
         provider: 'v8',
         exclude: [
           'dist/**',
+          'tailwind.config.js',
+          'src/app/transloco-loader.ts',
           'vitest.config.ts',
           'federation.config.js',
           'src/bootstrap.ts',
@@ -21,7 +31,8 @@ export default async () => {
           '.angular/**',
           '**/*.routes.ts',
           '**/*.config.ts',
-          'eslint.config.js'
+          'eslint.config.js',
+          'src/environments/*',
         ],
         enabled: true,
         reporter: ['text', 'json', 'html', 'lcov'],

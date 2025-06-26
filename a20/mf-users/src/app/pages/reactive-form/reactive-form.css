@@ -1,0 +1,22 @@
+@import '../../../tailwind.css';
+
+:host {
+  width: 100%;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 1.5rem auto;
+  padding: 0 0.8rem;
+}
+form {
+  width: 400px;
+  background-color: #7678ed;
+  border-radius: 1rem;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+input {
+  color: #1f1f1f;
+  border: 1px solid #b2b3f0;
+}
