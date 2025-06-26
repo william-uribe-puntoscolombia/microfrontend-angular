@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { loadRemoteModule } from '@angular-architects/native-federation';
+import { loadRemoteModule, LoadRemoteModuleOptions } from '@angular-architects/native-federation';
 
 import { Home } from './home/home';
 import { NotFound } from './not-found/not-found';
@@ -16,8 +16,12 @@ export const routes: Routes = [
 
   // Add this route:
   {
-    matcher: startsWith('angular20'),
-    loadComponent: () => loadRemoteModule('remote-angular20', 'users-list').then((m) => m.UsersList),
+    path: 'angular20',
+    loadChildren: () =>
+      loadRemoteModule({
+        remoteName: 'remote-angular20',
+        exposedModule: './app.routes',
+      } as LoadRemoteModuleOptions).then((m) => m.routes),
   },
 
   {
