@@ -142,8 +142,8 @@ Uso en tests
 ```json
 # Eliminar esta parte:
 "overrides": {
-  "@angular/core": "20.0.4",
-  "@angular/common": "20.0.4"
+  "@angular/core": "20.0.5",
+  "@angular/common": "20.0.5"
 }
 ```
 
