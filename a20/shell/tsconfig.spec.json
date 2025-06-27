@@ -3,7 +3,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/spec"
+    "outDir": "./out-tsc/spec",
+    "types": ["vitest/globals", "vitest/importMeta", "vitest"] // avoids having to import describe, expect, it for vitest in every file.
   },
-  "include": ["src/**/*.ts", "setup.env.ts"]
+  "include": ["vitest.config.ts", "src/**/*.spec.ts", "src/**/*.d.ts"],
+  "files": ["src/test-setup.ts"]
 }

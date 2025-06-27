@@ -14,12 +14,14 @@
     "lint:fix": "ng lint --fix",
     "format:css": "prettier --write \"src/**/*.css\"",
     "prepare": "husky",
-    "test": "vitest",
-    "test:ui": "vitest --coverage --ui",
-    "test:nowatch": "ng test --no-watch --no-progress --browsers=ChromeHeadless",
-    "test:cov": "vitest --coverage",
-    "test:cov:nowatch": "ng test --no-watch --code-coverage  --browsers=ChromeHeadless",
-    "test:cov:include": "ng test --code-coverage --browsers=ChromeHeadless --include"
+    "vitest": "vitest",
+    "vitest:dir": "vitest --dir",
+    "vitest:ui": "vitest --ui",
+    "vitest:ui:cov": "vitest --ui --coverage ",
+    "vitest:cov": "vitest --coverage",
+    "vitest:cov:dir": "vitest --coverage --dir",
+    "vitest:run": "vitest run",
+    "vitest:run:cov": "vitest run --coverage"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +51,7 @@
     "@angular/build": "^20.0.4",
     "@angular/cli": "^20.0.4",
     "@angular/compiler-cli": "^20.0.5",
+    "@nx/vite": "^21.2.1",
     "@vitest/coverage-v8": "^3.2.4",
     "@vitest/ui": "^3.2.4",
     "angular-eslint": "20.1.1",

@@ -1,6 +1,4 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Person } from '../../core/interface/reactive-form';
 import { ReactiveForm } from './reactive-form';
@@ -12,7 +10,6 @@ describe('ReactiveForm', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ReactiveForm],
-      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ReactiveForm);

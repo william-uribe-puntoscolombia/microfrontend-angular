@@ -1,4 +1,3 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from 'vitest';
 
@@ -12,7 +11,6 @@ describe('NotFound', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NotFound, getTranslocoModule()],
-      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NotFound);

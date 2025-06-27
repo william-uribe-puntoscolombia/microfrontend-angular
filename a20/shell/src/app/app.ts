@@ -30,7 +30,7 @@ export class App implements OnInit {
 
     this.permissions.loadPermissions(roles);
 
-    console.log('shell:\n', this.permissions.getPermissions());
+    // console.log('shell:\n', this.permissions.getPermissions());
   }
 
   goToUrl(event: MouseEvent, url: string) {

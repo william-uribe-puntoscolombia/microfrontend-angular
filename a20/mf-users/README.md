@@ -35,23 +35,29 @@ $ bun lint:fix
 # Formato de stilos
 $ bun format:css
 
-# Ejecutar pruebas en modo headless
-$ bun test
+# Ejecutar Vitest
+$ bun vitest
 
-# Ejecutar pruebas con UI
-$ bun test:ui
+# Ejecutar Vitest en un directorio específico
+$ bun vitest:dir
 
-# Ejecutar pruebas sin watch ni progreso
-$ bun test:nowatch
+# Ejecutar Vitest con interfaz de usuario
+$ bun vitest:ui
 
-# Ejecutar pruebas con cobertura
-$ bun test:cov
+# Ejecutar Vitest con interfaz de usuario y cobertura
+$ bun vitest:ui:cov
 
-# Ejecutar pruebas con cobertura sin watch
-$ bun test:cov:nowatch
+# Ejecutar Vitest con cobertura
+$ bun vitest:cov
 
-# Ejecutar pruebas con cobertura incluyendo archivos específicos
-$ bun test:cov:include [RUTA_A_CARPETA_O_ARCHIVO]
+# Ejecutar Vitest con cobertura en un directorio específico
+$ bun vitest:cov:dir
+
+# Ejecutar Vitest en modo consola no watch
+$ bun vitest:run
+
+# Ejecutar Vitest en modo consola no watch con cobertura
+$ bun vitest:run:cov
 ```
 
 ## Tests unitarios
