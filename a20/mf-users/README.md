@@ -60,6 +60,15 @@ $ bun vitest:run
 $ bun vitest:run:cov
 ```
 
+## Recomendaciones de desarrollo
+
+- Desarrollo en cada microfrontend
+- Antes de publicar cambios validar que las funcionalidades se vean adecuadamente en el shell
+- Leer toda esta documentación
+- Leer la guia de liniamientos del Frontend
+- Antes de incluir alguna libreria nueva validar que esta este implementada y compartida en el shell
+- Actualizaciones: todos los microfrontends deben conservar la misma versión del shell, en caso contrario se debe convertir en WebComponent el microfronend exportado.
+
 ## Tests unitarios
 
 Se utiliza Vitest para las pruebas.
@@ -149,9 +158,10 @@ Uso en tests:
 
 # Checklist para nuevo micro
 
+- en el `package.json` /name, asignar nombre, eje: `pco-users`
 - Instalar extensiones.
 - Iniciar husky: `bun husky`.
-- Cambiar los selectores dependiendo del micro. Ejemplo: `prefix: 'shell',` -> `prefix: 'users',` en el `eslint.config.js`.
+- Cambiar los selectores dependiendo del micro. Ejemplo: `prefix: 'users',` en el `eslint.config.js`.
 - En el global store, asignar el nombre del micro en el key de la store: `key: 'pco-[MICRO_KEY]'`. Ejemplo: `key: 'pco-users'`.
 
 # Notas
