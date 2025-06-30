@@ -5,7 +5,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { loadRemoteModule } from '@softarc/native-federation-runtime';
+import { loadRemoteModule } from '@angular-architects/native-federation';
 
 import { WrapperConfig } from './wrapper-config-type';
 

@@ -36,8 +36,6 @@
     "@jsverse/transloco": "^7.6.1",
     "@ngrx/signals": "^19.2.1",
     "@ngrx/store-devtools": "^19.2.1",
-    "@softarc/native-federation-node": "^2.0.28",
-    "@softarc/native-federation-runtime": "^3.2.0",
     "es-module-shims": "^1.10.1",
     "ngx-permissions": "^19.0.0",
     "rxjs": "~7.8.2",
@@ -76,5 +74,6 @@
   },
   "engines": {
     "bun": "1.2.16"
-  }
+  },
+  "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184"
 }
