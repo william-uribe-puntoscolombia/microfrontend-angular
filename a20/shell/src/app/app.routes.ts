@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { loadRemoteModule, LoadRemoteModuleOptions } from '@angular-architects/native-federation';
 
-import { Home } from './home/home';
-import { NotFound } from './not-found/not-found';
+import { Home } from './pages/home/home';
+import { NotFound } from './pages/not-found/not-found';
 import { startsWith } from './starts-with';
 import { Wrapper } from './wrapper/wrapper';
 import { WrapperConfig } from './wrapper/wrapper-config-type';

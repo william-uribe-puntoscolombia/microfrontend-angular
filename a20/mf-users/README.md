@@ -6,19 +6,19 @@ Comandos:
 
 ```sh
 # Se recomienda usar el administrador de versiones de paquetes Mise. La versión está en .mise.toml.
-# Documentación de instalación de Mise: https://mise.jdx.dev/installing-mise.html#https-mise-run
+# Documentación de instalación de Mise: https://github.com/jdx/mise?tab=readme-ov-file#install-mise
 
-# Instala la versión de bun
-mise install
+# Instala la versión de bun soportada en el proyecto
+$ mise i
 
-# Instalar dependencias. NOTA: En el package.json/engines está la versión de Node a utilizar.
+# Instalar dependencias. NOTA: En el package.json/engines está la versión de bun/Node a soportada.
 $ bun i
 
 # Servidor de desarrollo
 $ bun dev
 
 # Build en modo producción
-$ bun build
+$ bun build:production
 
 # Build en modo staging
 $ bun build:staging
@@ -58,16 +58,22 @@ $ bun vitest:run
 
 # Ejecutar Vitest en modo consola sin watch con cobertura
 $ bun vitest:run:cov
+
+# Modo desarrollo auto genera los estilos en los archivos html que tengan un ..tailwind.css compañero.
+$ bun tailwind:components:watch
+
+# Genera los estilos en los archivos html que tengan un ..tailwind.css compañero.
+$ bun tailwind:componenbts:all
 ```
 
 ## Recomendaciones de desarrollo
 
 - Desarrollo en cada microfrontend
-- Antes de publicar cambios validar que las funcionalidades se vean adecuadamente en el shell
-- Leer toda esta documentación
-- Leer la guia de liniamientos del Frontend
-- Antes de incluir alguna libreria nueva validar que esta este implementada y compartida en el shell
-- Actualizaciones: todos los microfrontends deben conservar la misma versión del shell, en caso contrario se debe convertir en WebComponent el microfronend exportado.
+- Antes de publicar cambios, validar que las funcionalidades se vean adecuadamente en el shell.
+- Leer toda esta documentación.
+- Leer la guía de lineamientos del Frontend.
+- Antes de incluir alguna librería nueva, validar que esta esté implementada y compartida en el shell.
+- Actualizaciones: todos los microfrontends deben conservar la misma versión del shell; en caso contrario, se debe convertir en WebComponent el microfrontend exportado.
 
 ## Tests unitarios
 
@@ -131,7 +137,25 @@ Uso en tests:
 
 ```
 
-# Stack tecnológico
+## Tailwind
+
+Tailwind procesa todos los archivos generando un solo archivo optimizado con todos los estilos. Al usar microfrontends y exponer componentes, estos no contendrían los estilos de las clases de Tailwind. Se crea un script para poder usar los estilos de Tailwind por componente. A continuación se describe cómo usarlos:
+
+```sh
+# 1. Crear  MI-COMPONENTE.tailwind.css, ejemplo: list.tailwind.css
+
+# 2. Modificar agregando el nuevo estilo en el componente:
+styleUrl: './list.css' -> styleUrls: ['./list.css', './list.tailwind.css']
+
+```
+
+**Notas:**
+
+- En modo desarrollo `bun dev`, un script detecta si existe el ..tailwind.css y le agrega los estilos.
+- Opcional compilar todos los htmls: `bun tailwind:componenbts:all`
+- Opcional modo watch solo generar los estilos del componente en edición: `bun tailwind:componenbts:all`
+
+## Stack tecnológico
 
 - Linter, Format (ESLint)
 - Vitest, Coverage
@@ -139,7 +163,7 @@ Uso en tests:
 - Ngx-permissions
 - NgRx Signals
 
-# Pendientes
+## Pendientes
 
 - Vitest: validar funcionamiento del coverage.
 - Eliminar Peer dependencies requeridas por NgRx en el package.json.
@@ -152,11 +176,14 @@ Uso en tests:
 }
 ```
 
+- agregar al precommit: tailwind:components:all , format:css
+-
+
 - Cuando se implemente el login, no compartir el estado del rol.
 
 - ..
 
-# Checklist para nuevo micro
+## Checklist para nuevo micro
 
 - en el `package.json` /name, asignar nombre, eje: `pco-users`
 - Instalar extensiones.
@@ -164,6 +191,6 @@ Uso en tests:
 - Cambiar los selectores dependiendo del micro. Ejemplo: `prefix: 'users',` en el `eslint.config.js`.
 - En el global store, asignar el nombre del micro en el key de la store: `key: 'pco-[MICRO_KEY]'`. Ejemplo: `key: 'pco-users'`.
 
-# Notas
+## Notas
 
-- Se usa development-nfe debido a un error en el build al usar `"dev": true`. [Más información](https://github.com/angular-architects/module-federation-plugin/issues/753).
+- Para el uso de environments, se crea una nueva regla en el angular.json, (development-nfe) debido a un error en el build al usar el parámetro `"dev": true`. [Más información](https://github.com/angular-architects/module-federation-plugin/issues/753).

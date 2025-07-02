@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { getTranslocoModule } from '../transloco-testing.module';
+import { getTranslocoModule } from '../../transloco-testing.module';
 import { Home } from './home';
 
 describe('Home', () => {

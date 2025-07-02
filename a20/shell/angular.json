@@ -94,7 +94,7 @@
             "development": {
               "extractLicenses": false,
               "optimization": false,
-              "outputHashing": "none",
+              "outputHashing": "all",
               "sourceMap": true,
               "namedChunks": true,
               "fileReplacements": [

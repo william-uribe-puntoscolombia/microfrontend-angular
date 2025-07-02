@@ -1,11 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { loadRemoteModule } from '@angular-architects/native-federation';
 import { GlobalStore } from '@core/store/global.store';
 import { TranslocoModule } from '@jsverse/transloco';
 import { NgxPermissionsService } from 'ngx-permissions';
 
 import { Notification } from './core/store/global.store.model';
-
 @Component({
   selector: 'shell-root',
   imports: [RouterOutlet, TranslocoModule],
@@ -31,6 +31,8 @@ export class App implements OnInit {
     this.permissions.loadPermissions(roles);
 
     // console.log('shell:\n', this.permissions.getPermissions());
+
+    // this.loadRemoteStyles();
   }
 
   goToUrl(event: MouseEvent, url: string) {
@@ -50,4 +52,16 @@ export class App implements OnInit {
 
     this.store.setNotification(notification);
   }
+
+  // async loadRemoteStyles() {
+  //   const module = await loadRemoteModule({
+  //     remoteEntry: 'http://localhost:4201/remoteEntry.json',
+  //     exposedModule: './styles',
+  //   });
+  //   const url = module.default;
+  //   const link = document.createElement('link');
+  //   link.rel = 'stylesheet';
+  //   link.href = url;
+  //   document.head.appendChild(link);
+  // }
 }

@@ -1,12 +1,9 @@
 const { withNativeFederation, shareAll } = require('@angular-architects/native-federation/config');
 
-
 module.exports = withNativeFederation({
-
   shared: {
     ...shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
   },
-
 
   skip: [
     'rxjs/ajax',
@@ -14,9 +11,12 @@ module.exports = withNativeFederation({
     'rxjs/testing',
     'rxjs/webSocket',
     // Add further packages you don't need at runtime
-  ]
+  ],
+
+  features: {
+    ignoreUnusedDeps: true, // Avoid Tailwind errors.
+  },
 
   // Please read our FAQ about sharing libs:
   // https://shorturl.at/jmzH0
-
 });

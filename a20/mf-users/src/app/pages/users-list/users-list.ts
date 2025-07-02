@@ -18,7 +18,7 @@ import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
     }),
   ],
   templateUrl: './users-list.html',
-  styleUrl: './users-list.css',
+  styleUrls: ['./users-list.css', './users-list.tailwind.css'],
   standalone: true,
 })
 export class UsersList implements OnInit {

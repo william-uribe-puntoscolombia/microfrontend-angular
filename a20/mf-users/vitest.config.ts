@@ -29,7 +29,6 @@ export default defineConfig(() => ({
         'src/bootstrap.ts',
         'src/environments/*',
         'src/main.ts',
-        'tailwind.config.js',
         'vitest.config.ts',
       ],
     },
