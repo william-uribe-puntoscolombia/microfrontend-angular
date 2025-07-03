@@ -5,6 +5,7 @@ module.exports = withNativeFederation({
 
   exposes: {
     './app.routes': './src/app/app.routes.ts',
+    './mocks': './src/api-mock/handlers.ts',
   },
 
   shared: {

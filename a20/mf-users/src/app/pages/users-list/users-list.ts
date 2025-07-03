@@ -1,10 +1,16 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { UserService } from '@core/services/user-service';
 import { provideTranslocoScope, TranslocoDirective, TranslocoModule } from '@jsverse/transloco';
 import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 // export const loader = ['en', 'es'].reduce<Record<string, () => Promise<any>>>((acc, lang) => {
 //   acc[lang] = () => import(`../../../assets/i18n/${lang}.json`);
 //   return acc;
 // }, {});
+export interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+}
 @Component({
   selector: 'mf-users-users-list',
   imports: [NgxPermissionsModule, TranslocoModule, TranslocoDirective],
@@ -23,6 +29,8 @@ import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 })
 export class UsersList implements OnInit {
   permissions = inject(NgxPermissionsService);
+  userService = inject(UserService);
+  usersList = signal<User[]>([]);
 
   ngOnInit(): void {
     /**
@@ -36,10 +44,23 @@ export class UsersList implements OnInit {
         this.permissions.loadPermissions(roles);
       }
      */
-
+    this.getUser();
     /**
      * log
      */
     console.log('mf20-permissions:\n', this.permissions.getPermissions());
+  }
+
+  getUser() {
+    this.userService.getUser().subscribe({
+      next: (user: User) => {
+        console.log('User data:', user);
+        this.usersList.update((users) => [...users, user]);
+        console.log(this.usersList());
+      },
+      error: (error) => {
+        console.error('Error fetching user data:', error);
+      },
+    });
   }
 }
