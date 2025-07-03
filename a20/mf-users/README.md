@@ -223,7 +223,7 @@ npx msw init ./public --save
 
 ### Creación de mocks y configuración
 
-Creamos un archivo en el cual vamos a configurar todos los mocks de los servicios, en la documentación nos recomiendan llamarlo [handlers.ts].
+Creamos un archivo en el cual vamos a configurar todos los mocks de los servicios, en la documentación nos recomiendan llamarlo `handlers.ts`.
 
 Un ejemplo de cómo se debe crear los mocks es el siguiente.
 
@@ -248,7 +248,7 @@ export const handlers = [
 
 También debemos crear un archivo en el cual vamos a asignar todos los mocks creados. En este caso, es como se crea específicamente para Angular o React.
 
-Este archivo en la documentación nos lo recomiendan llamar [browser.ts], y tanto este archivo como el anterior lo mejor es que estén en la misma carpeta.
+Este archivo en la documentación nos lo recomiendan llamar `browser.ts`, y tanto este archivo como el anterior lo mejor es que estén en la misma carpeta.
 
 ```ts
 
@@ -260,7 +260,7 @@ export const worker = setupWorker(...handlers);
 
 ```
 
-Para finalizar con su configuración ese [worker] creado anteriormente debemos meterlo en la lógica del [bootstrap.ts] para que tenga en cuenta el mockeo de nuestros servicios al iniciar la aplicación de manera local, y eso lo hacemos de la siguiente manera.
+Para finalizar con su configuración ese `worker` creado anteriormente debemos meterlo en la lógica del `bootstrap.ts` para que tenga en cuenta el mockeo de nuestros servicios al iniciar la aplicación de manera local, y eso lo hacemos de la siguiente manera.
 
 ```ts
 
@@ -287,7 +287,7 @@ prepareApp().then(() => {
 
 ## Tests
 
-Como estamos utilizando [vitest], los servicios se mockean de una manera un poco diferente a como se venían implementando en Jasmine con Karma. 
+Como estamos utilizando `vitest`, los servicios se mockean de una manera un poco diferente a como se venían implementando en Jasmine con Karma. 
 
 Primero se mostrara un ejemplo de un consumo de servicio que localmente estará mockeado y en otros ambientes estara llegando la información desde el backend, y luego cómo se estaría mockeando desde las pruebas.
 
@@ -330,7 +330,7 @@ let userServiceMock: Partial<UserService>;
 
 ```
 
-- Después iniciamos la variable en él [beforeEach] con las funciones que vayamos a mockear.
+- Después iniciamos la variable en él `beforeEach` con las funciones que vayamos a mockear.
 
 ```ts
 
@@ -340,7 +340,7 @@ let userServiceMock: Partial<UserService>;
 
 ```
 
-- Llamar el mock en los [providers] del test de la siguiente manera.
+- Llamar el mock en los `providers` del test de la siguiente manera.
 
 ```ts
 

@@ -36,7 +36,7 @@ npx msw init ./public --save
 
 ### Implementar mocks de microfronted y configuración
 
-Creamos un archivo en el cual vamos a implementar los mocks de los microfrontends, en este caso lo llame [load-remote-handlers.ts].
+Creamos un archivo en el cual vamos a implementar los mocks de los microfrontends, en este caso lo llame `load-remote-handlers.ts`.
 
 ```ts
 
@@ -55,7 +55,7 @@ export async function loadRemoteHandlers() {
 
 Hay que tener claro que para que el shell pueda obtener estos mocks deben estar expuestos desde el microfrontend.
 
-Para finalizar debemos llamar estos mocks en la lógica del [bootstrap.ts] para que tenga en cuenta el mockeo de nuestros servicios al iniciar la aplicación de manera local, y eso lo hacemos de la siguiente manera.
+Para finalizar debemos llamar estos mocks en la lógica del `bootstrap.ts` para que tenga en cuenta el mockeo de nuestros servicios al iniciar la aplicación de manera local, y eso lo hacemos de la siguiente manera.
 
 ```ts
 import { bootstrapApplication } from '@angular/platform-browser';
