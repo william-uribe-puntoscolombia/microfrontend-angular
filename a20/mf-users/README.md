@@ -287,7 +287,7 @@ prepareApp().then(() => {
 
 ## Tests
 
-Como estamos utilizando `vitest`, los servicios se mockean de una manera un poco diferente a como se venían implementando en Jasmine con Karma. 
+Como estamos utilizando `Vitest`, los servicios se mockean de una manera un poco diferente a como se venían implementando en Jasmine con Karma. 
 
 Primero se mostrara un ejemplo de un consumo de servicio que localmente estará mockeado y en otros ambientes estara llegando la información desde el backend, y luego cómo se estaría mockeando desde las pruebas.
 
