@@ -82,5 +82,8 @@
   },
   "engines": {
     "bun": "1.2.17"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

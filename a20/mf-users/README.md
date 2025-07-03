@@ -194,3 +194,227 @@ styleUrl: './list.css' -> styleUrls: ['./list.css', './list.tailwind.css']
 ## Notas
 
 - Para el uso de environments, se crea una nueva regla en el angular.json, (development-nfe) debido a un error en el build al usar el parámetro `"dev": true`. [Más información](https://github.com/angular-architects/module-federation-plugin/issues/753).
+
+## ¿Cómo mockear los servicios localmente?
+
+Utilizamos MSW para mockear los servicios de manera local. Para que funcione se deben hacer primero unas configuraciones que son las siguientes:
+
+### Instalación
+
+Para poder utilizar la librería la debemos instalar primero a partir del siguiente comando.
+
+```sh
+
+bun install msw@1 --save-dev
+
+```
+
+Nos toca instalar la versión 1 porque es la versión que está recomendada para angular, ya que la 2 nos podría generar conflictos.
+
+### Creación de mockServiceWorker.js
+
+La creación de este archivo nos va a permitir que nos identifique los diferentes mocks que vamos a crear, y este archivo se crea a partir del siguiente comando.
+
+```sh
+
+npx msw init ./public --save
+
+```
+
+### Creación de mocks y configuración
+
+Creamos un archivo en el cual vamos a configurar todos los mocks de los servicios, en la documentación nos recomiendan llamarlo [handlers.ts].
+
+Un ejemplo de cómo se debe crear los mocks es el siguiente.
+
+```ts
+
+import { environment } from '@env';
+import { rest } from 'msw';
+
+export const handlers = [
+  rest.get(`${environment.apiUrl}/user`, (req, res, ctx) => {
+    return res(
+      ctx.json({
+        id: 'abc-123',
+        firstName: 'John',
+        lastName: 'Maverick',
+      })
+    );
+  }),
+];
+
+```
+
+También debemos crear un archivo en el cual vamos a asignar todos los mocks creados. En este caso, es como se crea específicamente para Angular o React.
+
+Este archivo en la documentación nos lo recomiendan llamar [browser.ts], y tanto este archivo como el anterior lo mejor es que estén en la misma carpeta.
+
+```ts
+
+import { setupWorker } from 'msw';
+
+import { handlers } from './handlers';
+
+export const worker = setupWorker(...handlers);
+
+```
+
+Para finalizar con su configuración ese [worker] creado anteriormente debemos meterlo en la lógica del [bootstrap.ts] para que tenga en cuenta el mockeo de nuestros servicios al iniciar la aplicación de manera local, y eso lo hacemos de la siguiente manera.
+
+```ts
+
+import { bootstrapApplication } from '@angular/platform-browser';
+import { environment } from '@env';
+
+import { App } from './app/app';
+import { appConfig } from './app/app.config';
+
+async function prepareApp() {
+  if (environment.useMockService) {
+    const { worker } = await import('./api-mock/browser');
+    return worker.start();
+  }
+
+  return Promise.resolve();
+}
+
+prepareApp().then(() => {
+  bootstrapApplication(App, appConfig).catch((err) => console.error(err));
+});
+
+```
+
+## Tests
+
+Como estamos utilizando [vitest], los servicios se mockean de una manera un poco diferente a como se venían implementando en Jasmine con Karma. 
+
+Primero se mostrara un ejemplo de un consumo de servicio que localmente estará mockeado y en otros ambientes estara llegando la información desde el backend, y luego cómo se estaría mockeando desde las pruebas.
+
+Ejemplo:
+
+```ts
+
+export class UsersList implements OnInit {
+  permissions = inject(NgxPermissionsService);
+  userService = inject(UserService);
+  usersList = signal<User[]>([]);
+
+  ngOnInit(): void {
+    this.getUser();
+  }
+
+  getUser() {
+    this.userService.getUser().subscribe({
+      next: (user: User) => {
+        console.log('User data:', user);
+        this.usersList.update((users) => [...users, user]);
+        console.log(this.usersList());
+      },
+      error: (error) => {
+        console.error('Error fetching user data:', error);
+      },
+    });
+  }
+}
+
+```
+
+Cómo se mockearia en los test:
+
+- Primero declaramos la variable del servicio. 
+
+```ts
+
+let userServiceMock: Partial<UserService>;
+
+```
+
+- Después iniciamos la variable en él [beforeEach] con las funciones que vayamos a mockear.
+
+```ts
+
+  userServiceMock = {
+      getUser: vi.fn().mockReturnValue(of()),
+  };
+
+```
+
+- Llamar el mock en los [providers] del test de la siguiente manera.
+
+```ts
+
+  await TestBed.configureTestingModule({
+    providers: [provideHttpClient(withInterceptorsFromDi()), { provide: UserService, useValue: userServiceMock }],
+  }).compileComponents();
+
+```
+
+Para finalizar, solo se necesitaría llamar el mock donde se necesite y mockearle la respuesta.
+
+Está sería una implementación completa de cómo serían las pruebas de la función mostrada al inicio.
+
+```ts
+
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { UserService } from '@core/services/user-service';
+import { NgxPermissionsAllowStubDirective, NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
+import { of, throwError } from 'rxjs';
+import { afterEach, beforeEach, describe, expect, it, Mock, vi } from 'vitest';
+
+import { getTranslocoModule } from '../../transloco-testing.module';
+import { UsersList } from './users-list';
+
+describe('UsersList', () => {
+  let component: UsersList;
+  let fixture: ComponentFixture<UsersList>;
+  let userServiceMock: Partial<UserService>;
+
+  beforeEach(async () => {
+    userServiceMock = {
+      getUser: vi.fn().mockReturnValue(of()),
+    };
+    await TestBed.configureTestingModule({
+      imports: [UsersList, NgxPermissionsModule.forRoot({}), NgxPermissionsAllowStubDirective, getTranslocoModule()],
+      providers: [provideHttpClient(withInterceptorsFromDi()), { provide: UserService, useValue: userServiceMock }],
+    }).compileComponents();
+
+    TestBed.inject(NgxPermissionsService).loadPermissions(['user:list']);
+
+    fixture = TestBed.createComponent(UsersList);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.usersList.set([]);
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('test unit function service success', () => {
+    (userServiceMock.getUser as Mock).mockReturnValue(of({ id: 'abc-123', firstName: 'John', lastName: 'Naranjo' }));
+    component.ngOnInit();
+    expect(userServiceMock.getUser).toHaveBeenCalled();
+    expect(component.usersList()).toEqual([{ id: 'abc-123', firstName: 'John', lastName: 'Naranjo' }]);
+  });
+
+  it('test unit function service error', () => {
+    (userServiceMock.getUser as Mock).mockReturnValue(throwError(() => new Error('Error fetching user data')));
+    component.ngOnInit();
+    expect(userServiceMock.getUser).toHaveBeenCalled();
+    expect(component.usersList()).toEqual([]);
+  });
+});
+
+
+```
+
+
+
+
+
