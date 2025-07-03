@@ -30,6 +30,7 @@ export default defineConfig(() => ({
         'src/environments/*',
         'src/main.ts',
         'vitest.config.ts',
+        'public/mockServiceWorker.js',
       ],
     },
   },
