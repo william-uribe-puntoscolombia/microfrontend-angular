@@ -68,7 +68,7 @@
               },
               "src/assets"
             ],
-            "styles": ["src/styles.css"],
+            "styles": ["public/reset.css", "src/styles.css"],
             "polyfills": ["es-module-shims"]
           },
           "configurations": {

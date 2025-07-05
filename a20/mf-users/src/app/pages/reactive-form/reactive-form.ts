@@ -11,7 +11,7 @@ import { personSchema } from '../../core/schemas/person.schemas';
   selector: 'mf-users-reactive-form',
   imports: [ReactiveFormsModule, JsonPipe, CommonModule],
   templateUrl: './reactive-form.html',
-  styleUrl: './reactive-form.css',
+  styleUrls: ['./reactive-form.css', './reactive-form.tailwind.css'],
   standalone: true,
 })
 export class ReactiveForm implements OnDestroy, OnInit {

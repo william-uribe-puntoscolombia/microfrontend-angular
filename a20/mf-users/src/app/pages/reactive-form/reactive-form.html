@@ -1,49 +1,48 @@
-<div class="container">
-  <form class="grid gap-6 m-auto h-fit p-8" [formGroup]="myForm">
-    <h1 class="text-center text-[18px] font-bold">Formulario Reactivo</h1>
+<form class="form" [formGroup]="myForm">
+  <h1 class="form-title">Formulario Reactivo</h1>
 
-    <div class="col-12">
-      <label for="" class="block">Nombre</label>
-      <input
-        type="text"
-        class="rounded p-1 w-full"
-        formControlName="name"
-        [ngClass]="{ 'ng-invalid': checkFieldError('name') }"
-      />
-      @if (checkFieldError('name')) {
-        <div class="ng-invalid-text">{{ checkFieldError('name') }}</div>
-      }
+  <div class="form-group">
+    <label for="name">Nombre</label>
+    <input
+      type="text"
+      id="name"
+      class="input"
+      formControlName="name"
+      [ngClass]="{ 'input-error': checkFieldError('name') }"
+    />
+    <div *ngIf="checkFieldError('name')" class="error-message">
+      {{ checkFieldError('name') }}
     </div>
-    <div class="col-12">
-      <label for="" class="block">Apellido</label>
-      <input
-        type="text"
-        class="rounded p-1 w-full"
-        formControlName="lastname"
-        [ngClass]="{ 'ng-invalid': checkFieldError('lastname') }"
-      />
-      @if (checkFieldError('lastname')) {
-        <div class="ng-invalid-text">{{ checkFieldError('lastname') }}</div>
-      }
+  </div>
+  <div class="form-group">
+    <label for="lastname">Apellido</label>
+    <input
+      type="text"
+      id="lastname"
+      class="input"
+      formControlName="lastname"
+      [ngClass]="{ 'input-error': checkFieldError('lastname') }"
+    />
+    <div *ngIf="checkFieldError('lastname')" class="error-message">
+      {{ checkFieldError('lastname') }}
     </div>
-    <div class="col-12">
-      <label for="" class="block">Correo</label>
-      <input
-        type="text"
-        class="rounded p-1 w-full"
-        formControlName="email"
-        [ngClass]="{ 'ng-invalid': checkFieldError('email') }"
-      />
-      @if (checkFieldError('email')) {
-        <div class="ng-invalid-text">{{ checkFieldError('email') }}</div>
-      }
+  </div>
+  <div class="form-group">
+    <label for="email">Correo</label>
+    <input
+      type="email"
+      id="email"
+      class="input"
+      formControlName="email"
+      [ngClass]="{ 'input-error': checkFieldError('email') }"
+    />
+    <div *ngIf="checkFieldError('email')" class="error-message">
+      {{ checkFieldError('email') }}
     </div>
-    <div class="col-12 text-center">
-      <button class="rounded p-1" style="width: 200px" type="submit" [disabled]="formError().length !== 0">
-        Enviar
-      </button>
-    </div>
-  </form>
-</div>
+  </div>
+  <div class="form-actions">
+    <button class="submit-button" type="submit" [disabled]="formError().length !== 0">Enviar</button>
+  </div>
+</form>
 
-<p>{{ myForm.value | json }}</p>
+<p class="form-output">{{ myForm.value | json }}</p>

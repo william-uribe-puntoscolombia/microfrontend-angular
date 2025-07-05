@@ -1,49 +1,13 @@
-@layer theme, base, components, utilities, mfe-users;
-@import 'tailwindcss';
-
 @layer mfe-users {
-  :root {
-    --text-color: #fff;
-    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
 
   body {
     color: var(--text-color);
     background-color: #7678ed;
   }
-
   main {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     width: 100%;
-    /* border: 1px solid rgba(255, 255, 255, 0.2); */
-  }
-
-  /* Formulario */
-  .ng-invalid {
-    border: 1px solid #ff6b6b;
-  }
-
-  .ng-invalid-text {
-    color: #ff6b6b;
-    font-size: 14px;
-  }
-
-  button:disabled {
-    background-color: #dadafe;
-    color: #a0a0a0;
-    cursor: not-allowed;
-  }
-
-  button {
-    background-color: #5c5eba;
-    color: #ffffff;
-    cursor: pointer;
-  }
-
-  button:focus,
-  button:hover {
-    background-color: #4b4d9a;
   }
 }
