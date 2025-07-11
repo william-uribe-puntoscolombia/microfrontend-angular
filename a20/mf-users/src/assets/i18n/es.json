@@ -1,12 +1,3 @@
 {
-  "titleMfUser": "Microfrontend de Usuarios",
-  "userList": {
-    "title": "Usuarios Angular 20",
-    "id": "Código",
-    "name": "Nombre",
-    "email": "Correo Electrónico",
-    "action": "Acciones",
-    "btnEdit": "Editar",
-    "btnDelete": "Eliminar"
-  }
+  "titleMfUser": "Microfrontend de Usuarios"
 }

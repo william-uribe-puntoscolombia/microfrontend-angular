@@ -1,0 +1,9 @@
+{
+  "title": "Usuarios Angular 20",
+  "id": "Código",
+  "name": "Nombre",
+  "email": "Correo Electrónico",
+  "action": "Acciones",
+  "btnEdit": "Editar",
+  "btnDelete": "Eliminar"
+}

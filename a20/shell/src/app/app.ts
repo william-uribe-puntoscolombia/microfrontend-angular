@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { loadRemoteModule } from '@angular-architects/native-federation';
+// import { loadRemoteModule } from '@angular-architects/native-federation';
 import { GlobalStore } from '@core/store/global.store';
 import { TranslocoModule } from '@jsverse/transloco';
 import { NgxPermissionsService } from 'ngx-permissions';

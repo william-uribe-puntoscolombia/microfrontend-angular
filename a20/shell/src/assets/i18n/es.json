@@ -6,5 +6,6 @@
   "profile": "Tu perfil",
   "svelte-mfe": "Svelte-mfe",
   "welcomeHome": "Bienvenido al Inicio",
-  "notFoundPage": "Página no encontrada"
+  "notFoundPage": "Página no encontrada",
+  "FormPage": "Formulario"
 }

@@ -1,6 +1,7 @@
 import { CommonModule, JsonPipe } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { LoginService } from '@core/services/login-service';
 import { Subscription } from 'rxjs';
 import { z } from 'zod';
 
@@ -18,6 +19,7 @@ export class ReactiveForm implements OnDestroy, OnInit {
   formBuilder = inject(FormBuilder);
   formError = signal<FormErrors[]>([]);
   _myFormSubscription!: Subscription;
+  loginService = inject(LoginService);
 
   myForm: FormGroup = this.formBuilder.group({
     name: [''],
@@ -30,6 +32,8 @@ export class ReactiveForm implements OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.loginService.checkLogin());
+
     this.validateForm(this.myForm.value);
 
     this._myFormSubscription = this.myForm.valueChanges.subscribe((formValues) => {

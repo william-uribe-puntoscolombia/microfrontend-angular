@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { LoginService } from '@core/services/login-service';
 import { UserService } from '@core/services/user-service';
-import { provideTranslocoScope, TranslocoDirective, TranslocoModule } from '@jsverse/transloco';
+import { provideTranslocoScope, TranslocoDirective, TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 // export const loader = ['en', 'es'].reduce<Record<string, () => Promise<any>>>((acc, lang) => {
 //   acc[lang] = () => import(`../../../assets/i18n/${lang}.json`);
@@ -16,10 +17,10 @@ export interface User {
   imports: [NgxPermissionsModule, TranslocoModule, TranslocoDirective],
   providers: [
     provideTranslocoScope({
-      scope: 'mfUsers',
+      scope: 'userList',
       loader: {
-        en: () => import(`../../../assets/i18n/en.json`).then((m) => m.default),
-        es: () => import(`../../../assets/i18n/es.json`).then((m) => m.default),
+        en: () => import(`../../../assets/i18n/userList/en.json`).then((m) => m.default),
+        es: () => import(`../../../assets/i18n/userList/es.json`).then((m) => m.default),
       },
     }),
   ],
@@ -30,9 +31,12 @@ export interface User {
 export class UsersList implements OnInit {
   permissions = inject(NgxPermissionsService);
   userService = inject(UserService);
+  loginService = inject(LoginService);
+  translocoService = inject(TranslocoService);
   usersList = signal<User[]>([]);
 
   ngOnInit(): void {
+    this.loginService.login();
     /**
      * Si no hay permisos heredados, se cargan los permisos por defecto
      */
@@ -44,6 +48,7 @@ export class UsersList implements OnInit {
         this.permissions.loadPermissions(roles);
       }
      */
+
     this.getUser();
     /**
      * log
