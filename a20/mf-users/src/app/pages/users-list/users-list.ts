@@ -1,4 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { UserService } from '@core/services/user-service';
 import { provideTranslocoScope, TranslocoDirective, TranslocoModule } from '@jsverse/transloco';
 import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
@@ -11,9 +12,11 @@ export interface User {
   firstName: string;
   lastName: string;
 }
+import { ButtonModule } from 'primeng/button';
+import { DatePickerModule } from 'primeng/datepicker';
 @Component({
   selector: 'mf-users-users-list',
-  imports: [NgxPermissionsModule, TranslocoModule, TranslocoDirective],
+  imports: [NgxPermissionsModule, TranslocoModule, TranslocoDirective, ButtonModule, FormsModule, DatePickerModule],
   providers: [
     provideTranslocoScope({
       scope: 'mfUsers',
@@ -28,6 +31,8 @@ export interface User {
   standalone: true,
 })
 export class UsersList implements OnInit {
+  date: Date | undefined;
+
   permissions = inject(NgxPermissionsService);
   userService = inject(UserService);
   usersList = signal<User[]>([]);
