@@ -144,6 +144,7 @@
   },
   "cli": {
     "schematicCollections": ["angular-eslint"],
-    "analytics": false
+    "analytics": false,
+    "packageManager": "bun"
   }
 }

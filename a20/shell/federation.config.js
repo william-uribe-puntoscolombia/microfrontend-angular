@@ -2,9 +2,9 @@ const { withNativeFederation, shareAll, share } = require('@angular-architects/n
 
 module.exports = withNativeFederation({
   shared: {
-    ...shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
+    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
     ...share({
-      // '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+      '@angular/core': { singleton: true, strictVersion: false, requiredVersion: '>=20.0.0 <21.0.0' },
       // '@angular/common': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
       // '@angular/router': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
       // '@ngrx/signals': { singleton: true, strictVersion: true, requiredVersion: 'auto' },

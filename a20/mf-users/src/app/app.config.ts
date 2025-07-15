@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import {
   ApplicationConfig,
   importProvidersFrom,
@@ -12,17 +12,16 @@ import { provideTransloco } from '@jsverse/transloco';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { providePrimeNG } from 'primeng/config';
 
-import Aura from '../theme/aura';
+import PCO from '../theme/pco';
 import { routes } from './app.routes';
 import { TranslocoHttpLoader } from './transloco-loader';
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
     importProvidersFrom(NgxPermissionsModule.forRoot()),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideTransloco({
       config: {
         availableLangs: ['en', 'es'],
@@ -35,7 +34,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: PCO,
       },
     }),
   ],

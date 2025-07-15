@@ -1,13 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { provideTranslocoScope, TranslocoDirective, TranslocoModule } from '@jsverse/transloco';
-import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 // export const loader = ['en', 'es'].reduce<Record<string, () => Promise<any>>>((acc, lang) => {
 //   acc[lang] = () => import(`../../../assets/i18n/${lang}.json`);
 //   return acc;
 // }, {});
+//
+import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 import { ButtonModule } from 'primeng/button';
 import { DatePickerModule } from 'primeng/datepicker';
+
 @Component({
   selector: 'mf-users-users-list',
   imports: [NgxPermissionsModule, TranslocoModule, TranslocoDirective, ButtonModule, FormsModule, DatePickerModule],

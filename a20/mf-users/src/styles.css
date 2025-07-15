@@ -1,9 +1,9 @@
 @layer mfe-users {
-
   body {
     color: var(--text-color);
     background-color: #7678ed;
   }
+
   main {
     display: flex;
     flex-direction: column;

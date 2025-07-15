@@ -1,0 +1,48 @@
+diff --git a/node_modules/@angular-architects/native-federation/.bun-tag-19f78e621be61c4b b/.bun-tag-19f78e621be61c4b
+new file mode 100644
+index 0000000000000000000000000000000000000000..e69de29bb2d1d6434b8b29ae775ad8c2e48c5391
+diff --git a/src/utils/angular-esbuild-adapter.js b/src/utils/angular-esbuild-adapter.js
+index f9f545527135e4dc09b3a31e068d9447dd69bdff..6a9b1f2d52b0827aa4ee498799b9dfa283bcdfce 100644
+--- a/src/utils/angular-esbuild-adapter.js
++++ b/src/utils/angular-esbuild-adapter.js
+@@ -8,7 +8,7 @@ const build_1 = require("@softarc/native-federation/build");
+ const esbuild = tslib_1.__importStar(require("esbuild"));
+ const private_1 = require("@angular/build/private");
+ const create_compiler_options_1 = require("./create-compiler-options");
+-const tailwind_1 = require("@angular-devkit/build-angular/src/utils/tailwind");
++// const tailwind_1 = require("@angular-devkit/build-angular/src/utils/tailwind");
+ const utils_1 = require("@angular-devkit/build-angular/src/utils");
+ const node_module_1 = require("node:module");
+ const fs = tslib_1.__importStar(require("fs"));
+@@ -102,15 +102,15 @@ function runEsbuild(builderOptions_1, context_1, entryPoints_1, external_1, outd
+         const workspaceRoot = context.workspaceRoot;
+         const optimizationOptions = (0, utils_1.normalizeOptimization)(builderOptions.optimization);
+         const sourcemapOptions = (0, utils_1.normalizeSourceMaps)(builderOptions.sourceMap);
+-        const tailwindConfigurationPath = yield (0, tailwind_1.findTailwindConfigurationFile)(workspaceRoot, projectRoot);
++        // const tailwindConfigurationPath = yield (0, tailwind_1.findTailwindConfigurationFile)(workspaceRoot, projectRoot);
+         const fullProjectRoot = path.join(workspaceRoot, projectRoot);
+         const resolver = (0, node_module_1.createRequire)(fullProjectRoot + '/');
+-        const tailwindConfiguration = tailwindConfigurationPath
+-            ? {
+-                file: tailwindConfigurationPath,
+-                package: resolver.resolve('tailwindcss'),
+-            }
+-            : undefined;
++        // const tailwindConfiguration = tailwindConfigurationPath
++        //     ? {
++        //         file: tailwindConfigurationPath,
++        //         package: resolver.resolve('tailwindcss'),
++        //     }
++        //     : undefined;
+         const outputNames = {
+             bundles: '[name]',
+             media: 'media/[name]',
+@@ -139,7 +139,7 @@ function runEsbuild(builderOptions_1, context_1, entryPoints_1, external_1, outd
+             advancedOptimizations: !dev,
+             inlineStyleLanguage: builderOptions.inlineStyleLanguage,
+             jit: false,
+-            tailwindConfiguration,
++            // tailwindConfiguration,
+         }, target, undefined);
+         const commonjsPluginModule = yield import('@chialab/esbuild-plugin-commonjs');
+         const commonjsPlugin = commonjsPluginModule.default;

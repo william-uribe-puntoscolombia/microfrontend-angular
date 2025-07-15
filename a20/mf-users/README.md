@@ -194,3 +194,9 @@ styleUrl: './list.css' -> styleUrls: ['./list.css', './list.tailwind.css']
 ## Notas
 
 - Para el uso de environments, se crea una nueva regla en el angular.json, (development-nfe) debido a un error en el build al usar el parámetro `"dev": true`. [Más información](https://github.com/angular-architects/module-federation-plugin/issues/753).
+
+### Actualización
+
+- ejecutar `ng update`
+- ejecutar `ncu -t minor` para ver, `ncu -t minor -u` para actualizar
+- actualizar la version de Bun.js o Node.js, en el `.mise.toml` y en el package.json
